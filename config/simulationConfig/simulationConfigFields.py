@@ -1,8 +1,4 @@
-from enum import Enum
-
-class StrEnum(str, Enum):  # Inherit from str and Enum
-    def __str__(self):
-        return self.value
+from enum import Enum, StrEnum
 
 class SimulationConfigFields(StrEnum):
     AGENTS = "agents"

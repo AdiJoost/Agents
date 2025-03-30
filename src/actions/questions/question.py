@@ -15,5 +15,8 @@ class Question():
     def setResult(self, response) -> None:
         self.result = self.answereFormat.model_validate_json(response.message.content)
 
-    def getResult(self) -> str:
-        return self.result
+    def getValue(self) -> str:
+        return self.result.Answere
+
+    def getResult(self) -> any:
+        return self.getValue()

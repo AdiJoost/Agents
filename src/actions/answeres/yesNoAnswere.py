@@ -3,5 +3,5 @@
 from pydantic import BaseModel
 
 
-class YesNoAnswere(BaseModel):
+class StringAnswere(BaseModel):
   Answere: str
