@@ -8,6 +8,8 @@ from src.actions.answeres.yesNoAnswere import StringAnswere
 
 class ChooseChancellorQuestion(Question):
 
+    PROMPT = "You are the president, you have to choose your chanellor candidate on this table. Answere only with their name."
+
     def __init__(self) -> None:
         super().__init__(StringAnswere)
         self.logger = Logger()

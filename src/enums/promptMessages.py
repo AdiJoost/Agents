@@ -8,3 +8,4 @@ class PromptMessages(Enum):
     CHANCELLOR_OPTIONS = auto()
     PROMPT = auto()
     EVERYTHING_SAID = auto()
+    RECENT_MESSAGES = auto()

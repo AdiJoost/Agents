@@ -5,6 +5,8 @@ from pydantic import BaseModel
 
 class Question():
 
+    PROMPT = ""
+
     def __init__(self, answereFormat: BaseModel) -> None:
         self.answereFormat = answereFormat
         self.result = ""
@@ -20,3 +22,6 @@ class Question():
 
     def getResult(self) -> any:
         return self.getValue()
+    
+    def getPrompt(self) -> str:
+        return self.PROMPT

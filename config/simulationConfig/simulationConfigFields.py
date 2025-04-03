@@ -9,3 +9,4 @@ class SimulationConfigFields(StrEnum):
     MODEL = "model"
     INITIAL_PROMPT = "initialPrompt"
     QUESTION = "question"
+    NUMBER_OF_FASCISTS = "numberOfFacists"

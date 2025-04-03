@@ -17,6 +17,9 @@ class SimulationManager():
         self.filePath = self._getFilePath()
         self.values = self._loadConfig()
 
+    def getNumberOfFacists(self) -> int:
+        return self.values.get(SimulationConfigFields.NUMBER_OF_FASCISTS, 0)
+
     def getAgents(self) -> List[BaseAgent]:
         returnValue = []
         agents = self.values.get(SimulationConfigFields.AGENTS)

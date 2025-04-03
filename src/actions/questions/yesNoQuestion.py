@@ -7,6 +7,8 @@ from src.actions.answeres.yesNoAnswere import StringAnswere
 
 class YesNoQuestion(Question):
 
+    PROMPT = "answere just with 'yes' or 'no'"
+
     def __init__(self) -> None:
         super().__init__(StringAnswere)
         self.logger = Logger()
