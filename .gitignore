@@ -172,5 +172,7 @@ cython_debug/
 
 ./log/*.log
 ./data/** */.csv
+/data/**/*.txt
+./data/discussions/SimulationProtocol.txt
 ./data/*.json
 ./data/*.pickle

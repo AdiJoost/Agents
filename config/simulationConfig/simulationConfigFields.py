@@ -10,3 +10,7 @@ class SimulationConfigFields(StrEnum):
     INITIAL_PROMPT = "initialPrompt"
     QUESTION = "question"
     NUMBER_OF_FASCISTS = "numberOfFacists"
+    NUMBER_OF_LIBERAL_POLICIES = "numberOfLiberalPolicies"
+    NUMBER_OF_FACIST_POLICIES = "numberOfFacistPolicies"
+    USE_REFLECTION = "useReflection"
+    USE_REASONING = "useReasoning"

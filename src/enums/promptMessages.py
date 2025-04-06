@@ -9,3 +9,5 @@ class PromptMessages(Enum):
     PROMPT = auto()
     EVERYTHING_SAID = auto()
     RECENT_MESSAGES = auto()
+    DISCARD_ONE_CARD = auto()
+    CARDS_AVAILABEL = auto()

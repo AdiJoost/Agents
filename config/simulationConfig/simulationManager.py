@@ -19,6 +19,12 @@ class SimulationManager():
 
     def getNumberOfFacists(self) -> int:
         return self.values.get(SimulationConfigFields.NUMBER_OF_FASCISTS, 0)
+    
+    def getNumberOfFacistsPolicies(self) -> int:
+        return self.values.get(SimulationConfigFields.NUMBER_OF_FACIST_POLICIES, 11)
+    
+    def getNumberOfLiberalPolicies(self) -> int:
+        return self.values.get(SimulationConfigFields.NUMBER_OF_LIBERAL_POLICIES, 6)
 
     def getAgents(self) -> List[BaseAgent]:
         returnValue = []
@@ -50,9 +56,11 @@ class SimulationManager():
         agentInstructions = self._getAgentInstruction(agentValues)
         agentName = agentValues.get(SimulationConfigFields.AGENT_NAME, "Unnamed")
         agentRole = agentValues.get(SimulationConfigFields.AGENT_ROLE, "No Role")
-        agentRoleDescription = agentValues.get(SimulationConfigFields.AGENT_ROLE_DESCRIPTION, "")
+        agentRoleDescription = agentValues.get(SimulationConfigFields.AGENT_ROLE_DESCRIPTION, ""),
+        useReflection = agentValues.get(SimulationConfigFields.USE_REFLECTION, False)
+        useReasoning = agentValues.get(SimulationConfigFields.USE_REASONING, False)
         model = agentValues.get(SimulationConfigFields.MODEL)
-        return BaseAgent(agentName=agentName, agentRole=agentRole, agentRoleDescription=agentRoleDescription, agentInstructions=agentInstructions, model=model)
+        return BaseAgent(agentName=agentName, agentRole=agentRole, agentRoleDescription=agentRoleDescription, agentInstructions=agentInstructions, model=model, useReasoning=useReasoning, useReflection=useReflection)
     
     def _getAgentInstruction(self, agentValues: dict) -> str:
         generalModelInstructions = self.values.get(SimulationConfigFields.GENERAL_MODEL_INSTRUCTIONS, "")
