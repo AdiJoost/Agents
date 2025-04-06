@@ -50,6 +50,8 @@ class BaseAgent():
 
     def logProtocol(self) -> None:
         if (self.protocolLogger):
+            self.protocolLogger.writeLine(f"Instructions for {self.agentName}:")
+            self.protocolLogger.writeLine(self.agentInstructions)
             self.protocolLogger.writeLine(f"Thougths of {self.agentName}")
             for entry in self.thoughts:
                 self.protocolLogger.writeLine(entry)
@@ -59,7 +61,7 @@ class BaseAgent():
         prompt = args.get(PromptMessages.RECENT_MESSAGES, "")
         messages = []
         self._addInstructionsAndPastMessages(messages, prompt)
-        messages.append({"role": "user", "content": "Based on your thought and everything that has been said, give an answere to the table to reach your goal"})
+        messages.append({"role": "user", "content": "Based on your thought and everything that has been said, give an answere to the table to reach your goal. Only respond with what you would say to others playing on the table."})
         return self.llmController.generateOnMessage(messages)
 
     def _discardOneCard(self, args: dict):

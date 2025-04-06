@@ -14,3 +14,6 @@ class SimulationConfigFields(StrEnum):
     NUMBER_OF_FACIST_POLICIES = "numberOfFacistPolicies"
     USE_REFLECTION = "useReflection"
     USE_REASONING = "useReasoning"
+    PROMPT_PATH = "promptPath"
+    TEXT_PROMPT = "textPrompt"
+

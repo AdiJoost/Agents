@@ -63,9 +63,20 @@ class SimulationManager():
         return BaseAgent(agentName=agentName, agentRole=agentRole, agentRoleDescription=agentRoleDescription, agentInstructions=agentInstructions, model=model, useReasoning=useReasoning, useReflection=useReflection)
     
     def _getAgentInstruction(self, agentValues: dict) -> str:
-        generalModelInstructions = self.values.get(SimulationConfigFields.GENERAL_MODEL_INSTRUCTIONS, "")
+        generalModelInstructionsObject = self.values.get(SimulationConfigFields.GENERAL_MODEL_INSTRUCTIONS, "")
+        generalModelInstructions = self._getPrompt(generalModelInstructionsObject)
         agentName = agentValues.get(SimulationConfigFields.AGENT_NAME, "Unnamed")
         agentRole = agentValues.get(SimulationConfigFields.AGENT_ROLE, "No Role")
         agentRoleDescription = agentValues.get(SimulationConfigFields.AGENT_ROLE_DESCRIPTION, "")
-        return f"Generel Instructions for you: {generalModelInstructions} You're named: {agentName} Your Role is: {agentRole}, Your Role description is: {agentRoleDescription}"
+        return f"Generel Instructions for you: {generalModelInstructions} You're named: {agentName} Your behave like: {agentRole}, Your personality is: {agentRoleDescription}"
     
+    def _getPrompt(self, promptObject: dict) -> str:
+        if (promptObject.get(SimulationConfigFields.PROMPT_PATH)):
+            return self._loadPromptFromPath(promptObject.get(SimulationConfigFields.PROMPT_PATH))
+        return promptObject.get(SimulationConfigFields.TEXT_PROMPT, "")
+    
+    def _loadPromptFromPath(self, path: str) -> str:
+        rootPath = getRootPath()
+        filePath = rootPath.joinpath(path)
+        with open(filePath, "r", encoding="utf-8") as file:
+            return file.read()
