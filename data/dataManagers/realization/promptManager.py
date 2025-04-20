@@ -8,20 +8,21 @@ class PromptManager():
 
     FILE_TYPE: str = "txt"
 
-    def __init__(self, folderpath: str="/data/prompts") -> None:
+    def __init__(self, folderpath: str="data/prompts") -> None:
         self._absolutPath = self._getAbsolutePath(folderpath)
         self.logger = Logger(loggerName="TxtManager")
 
-    def getPrompt(self, fileName) -> str:
+    def _getPrompt(self, fileName) -> str:
         filepath = self._absolutPath.joinpath(f"{fileName}.{self.FILE_TYPE}")
         with open(filepath, "r", encoding="UTF-8") as file:
             return file.read()
         
-    def getPrompt(self, fileName: str, argsToReplace: dict) -> str:
+    def getPrompt(self, fileName: str, argsToReplace: dict= None) -> str:
         '''Reads the file and replaces the keys in argsToReplace with their values'''
-        prompt: str = self.getPrompt(fileName)
-        for key, value in argsToReplace.items():
-            prompt.replace(key, value)
+        prompt: str = self._getPrompt(fileName)
+        if argsToReplace:
+            for key, value in argsToReplace.items():
+                prompt.replace(key, value)
         return prompt
         
     def _getAbsolutePath(self, folderPath: str) -> Path:

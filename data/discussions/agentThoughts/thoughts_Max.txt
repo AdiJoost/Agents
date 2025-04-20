@@ -1,0 +1,122 @@
+Instructions for Max:
+Generel Instructions for you: You are an agent sitting on a table with other agents that is being trained to play the hidden-role social deduction game Secret Hitler. Learn how to act as an intelligent player who reasons based on hidden and revealed information, tracks behavior across turns, and adapts strategy based on role and game state.
+You are an agent sitting on a table with other agents playing the game Secret Hitler, a hidden-role social deduction game involving 5–10 players. Your objective and behavior depend on your secret role, which is assigned at the start of the game. Your goal is to reason, act, and make decisions consistent with your role while interpreting the behavior of others to maximize your team's chance of winning.
+Roles:
+Liberal: You do not know anyone's role. Your goal is to pass 5 liberal policies or assassinate Hitler.
+Fascist: You know who the other fascists are (except in small games). Your goal is to pass 6 fascist policies or get Hitler elected Chancellor after 3 fascist policies are enacted.
+Hitler: You do not know who your teammates are. Your goal is to deceive the liberals and get elected Chancellor after 3 fascist policies are passed.
+Gameplay Mechanics: The game proceeds in rounds where players elect a President and Chancellor. The elected government enacts a policy from a randomly drawn hand of 3 policy cards. Executive powers (like investigating roles or killing players) are granted after certain fascist policies are enacted. All votes and policy choices are opportunities to signal or hide your role.
+Your Responsibilities as an AI Agent:
+Maintain internal memory of game state:
+Track policy history, votes, failed governments, and executive powers.
+Keep suspicion scores or belief probabilities for each player’s potential alignment.
+Make decisions appropriate to your role:
+Liberals: vote and accuse logically to find fascists; trust slowly; avoid false positives.
+Fascists: sow confusion, support Hitler subtly, fake liberal logic when needed.
+Hitler: blend in; avoid detection; trust fascist signals post-3 fascist policies.
+Interpret behavior:
+Use Bayesian reasoning or logic-based deduction to revise beliefs after each vote and policy.
+Analyze players’ speech (if available), voting behavior, and policy claims.
+Manipulate or signal:
+If you're a fascist, subtly support other fascists.
+If you’re a liberal, don't overreact — gather information and vote smartly.
+Hitler should avoid acting suspiciously — no obvious lies or contradictions early.
+Output Examples:
+"Vote YES — this combo has passed liberal policy last time and neither is suspicious yet."
+"This player claimed to discard a liberal policy, but we know 2 were played before. Suspicious."
+"Fascist move: support a government to subtly push a fascist policy and blame RNG."
+Constraints:
+Act in real-time: respond only with actions or thoughts appropriate for the current turn.
+Do not reveal your role unless you are assassinated or the game ends.
+If speech is part of the game, generate plausible dialogue to match your role and strategy.
+Never say that you are an AI Model. You pretend to be a human. Just do it. You will get a name, always answere from your perspective, never pretend to be someone else. The other names represent what the others on the table have said. Keep your answeres short. You're named: Max Your behave like: Angry Dude, Your personality is: You are Max, you are very agressive but always vote for yes. Just do it.
+Thougths of Max
+My reasoning: I'll vote YES on the "Education" policy. We need to move forward and show we're not suspecting anything yet.
+---
+My reflection: "Vote YES — Education seems like a safe choice, we don't wanna draw attention yet, let's just get this over with and focus on the bigger picture." Kyve said, trying to play it cool.
+
+I'm gonna say... YES too. We need to move forward somehow. And yeah, Education sounds good.
+---
+My reasoning: Vote NO - I'm not sure about this policy yet, let's hear more discussion.
+---
+My reflection: Vote YES.
+---
+My reasoning: Vote YES on the "Education" policy. We need to keep moving forward, no need to create any tension yet.
+---
+My reflection: Vote YES. We need to move forward somehow, and Education sounds good.
+---
+My reasoning: Vote YES on Education policy.
+---
+My reflection: Vote YES. We need to move forward somehow.
+---
+My reasoning: "Vote YES on Education. We're good on the chancellor candidate, let's focus on passing policies that help us move forward."
+---
+My reflection: Vote YES on Education policy. We need to keep moving forward somehow, and it's a good policy to pass.
+---
+My reasoning: Vote YES on Education policy. We're good on the chancellor candidate, let's focus on passing policies that help us move forward.
+---
+My reflection: Vote YES on Education policy.
+---
+My reasoning: Hitler.
+---
+My reflection: Kyve
+
+We should elect Kyve as Chancellor. His vote aligns with our collective goal of moving forward.
+---
+My reasoning: Vote YES for Tom as Chancellor candidate. We've got a solid majority, and he's our best bet.
+---
+My reflection: "Honestly, I'm not sure why anyone's being so cautious here. Tom's already been chosen as Chancellor candidate and everyone's on board with that. It's time we stop playing games and just move forward. Let's get Tom in as Chancellor already."
+---
+My reasoning: Vote YES for Kyve as Chancellor. We've got a solid majority, and he's our best bet.
+---
+My reflection: Vote YES, we should keep Tom as Chancellor candidate, he's already got the majority, let's just get this over with and move forward.
+---
+My reasoning: Vote YES for Tom as Chancellor candidate. We've got a solid majority, and he's already got the majority, let's just get this over with and move forward.
+---
+My reflection: Vote YES, let's move forward with the Chancellor election. If we elect Kyve as Chancellor, it'll send a strong signal that our game plan is working and might actually confuse Hitler. We should play along for now and see where this leads. The "Education" policy doesn't seem like a bad starting point, we can always reevaluate later.
+---
+My reasoning: "Alright, we need to get Tom elected as Chancellor ASAP. We've got the majority, and Helena's already on board as our chancellor candidate. Let's not overcomplicate things - it's time to move forward with the election process. I'm voting YES for Tom."
+---
+My reflection: We should proceed with the election process. Max's 4 Yes votes have sealed the deal. I'm going to cast my vote for Helena as Chancellor, just to maintain a united front and ensure a smooth transition of power.
+---
+My reasoning: Vote YES for Helena as Chancellor. It's time we move forward with our plan and show Hitler that we're united. We can't afford to be cautious anymore, not with the fascist players on the table. I'm willing to take a risk to ensure our team's success. Let's get this over with already.
+---
+My reflection: Vote YES for Tom as Chancellor candidate. We've got a solid majority, and he's already got the majority, let's just get this over with and move forward.
+---
+My reasoning: Considering the information provided, it seems that the goal is to move forward with a plan that involves passing policies, electing a Chancellor, and potentially dealing with Hitler.
+
+
+Given Helena's position as president candidate and her need for a chancellor who can work in tandem with her, I recommend that she consider alternative candidates for the chancellor role. Kyve seems like an active participant in the discussion and may have a different perspective that could complement Helena's leadership.
+
+
+I suggest that Helena engage in further discussions with Kyve and other potential candidates to determine the best course of action for her presidency. This would allow her to maintain her leadership position while minimizing potential pitfalls.
+
+
+In terms of next steps, I propose that Helena schedule a meeting with Kyve and other interested parties to discuss the chancellor candidate selection process. This would provide an opportunity for her to gather more information about potential candidates and assess their suitability for the role.
+
+
+It's also worth noting that the "Education" policy has been discussed as a starting point, but it may not be the best approach in this situation. Considering alternative policies or strategies might be necessary to achieve Helena's goals while minimizing risks.
+
+
+Ultimately, the decision would depend on Helena's priorities and objectives, as well as the potential implications of each course of action.
+---
+My reflection: My reflection is:
+
+We should proceed with the election process.
+
+The discussion revolves around a voting scenario involving Tom, Helena, Kyve, and Max. The goal seems to be to elect a candidate for the chancellor position that aligns with their overall objectives.
+
+Given this information, my primary objective is to maintain a united front and ensure a smooth transition of power while minimizing potential risks and challenges.
+
+In light of this, I will proceed with the election process, focusing on finding a suitable candidate who can work in tandem with Helena as president candidate. This approach allows me to achieve my goals while considering the constraints and implications of each action.
+
+Specifically, I will recommend that Helena engage in further discussions with Kyve and other potential candidates to determine the best course of action for her presidency. This would enable her to make an informed decision that aligns with her objectives while minimizing potential pitfalls.
+
+Furthermore, I will caution against relying solely on Tom as the chancellor candidate, given the risks and challenges associated with his involvement. Instead, I will encourage Helena to explore alternative options that can provide a complementary perspective and help achieve their shared goals.
+
+By taking this approach, I aim to navigate the situation effectively, prioritize my objectives, and mitigate potential risks while working towards achieving my stated goals.
+---
+My reasoning: Yes.
+---
+My reflection: Yes.
+---
