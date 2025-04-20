@@ -7,6 +7,9 @@
     "numberOfFacists": 1,
     "numberOfLiberalPolicies":6,
     "numberOfFacistPolicies": 11,
+    "numberOfBadPoliciesForWin": 3,
+    "numberOfGoodPoliciesForWin": 2,
+    "numberOfPassedMessages": 5,
     "agents": [
         {
             "agentName": "Tom",

@@ -4,6 +4,7 @@ import random
 from typing import List
 
 from config.simulationConfig.simulationManager import SimulationManager
+from data.dataManagers.realization.promptManager import PromptManager
 from data.dataManagers.realization.txtManager import TxtManager
 from log.logger import Logger
 from src.actions.questions.yesNoQuestion import YesNoQuestion
@@ -11,23 +12,28 @@ from src.agents.baseAgent import BaseAgent
 from src.enums.agentAction import AgentAction
 from src.enums.policy import Policy
 from src.enums.promptMessages import PromptMessages
+from src.simulation.gamestate import GameState
 
 
 class BaseSimulation():
 
-    def __init__(self, simulationManager: SimulationManager, protocolLogger: TxtManager=None) -> None:
+    def __init__(self, simulationManager: SimulationManager, protocolLogger: TxtManager=None, promptManager: PromptManager= PromptManager()) -> None:
         self.simulationManager = simulationManager
         self.protocolLogger = protocolLogger
+        self.promptManager = promptManager
+        self.gameState = GameState(
+            policiesForBadWins = self.simulationManager.getNumberOfBadPoliciesForWin(),
+            policiesForGoodWins = self.simulationManager.getNumberOfGoodPoliciesForWin()
+        )
         self.gameStateLogger = Logger(filename = "gamestate")
-        self.agents: List[BaseAgent] = self.simulationManager.getAgents()
+        self.agents: List[BaseAgent] = self.simulationManager.getAgents(self.promptManager)
         self._assignGameRoles()
         self.protocol = [self.simulationManager.getInitialPrompt()]
         self.presidentCandidatePosition = 0
         self.chancellorCandidateName = None
         self.presidentCandidate: BaseAgent = self.agents[0]
         self.chancellorCandidate: BaseAgent = self.agents[0]
-        self.goodPolicies = 0
-        self.badPolicies = 0
+        self.numberOfPassedMessages = self.simulationManager.getNumberOfPassedMessages()
         self.numberOfConsecutiveFailedElectrions = 0
         self.gameOver = False
         self.policyStack = self._getPolicyStack()
@@ -64,8 +70,6 @@ class BaseSimulation():
         while not self.gameOver:
             self.gameStateLogger.info("Set new president.")
             self._setPresidentCandidate()
-            self.gameStateLogger.info("Simulate Step")
-            self._askForOpinions()
             self.gameStateLogger.info("Choosing new ChancellorCandidate")
             self._askPresidentForChancellorCandidate()
             self.gameStateLogger.info("Simulate Step")
@@ -76,9 +80,7 @@ class BaseSimulation():
                 policyPlayed = self._getPolicy()
                 self.protocol.append(f"Policy {policyPlayed} got played by {self.presidentCandidate.agentName} and {self.chancellorCandidateName}.")
                 if policyPlayed == Policy.FASCIST:
-                    self.badPolicies += 1
-                else:
-                    self.goodPolicies += 1
+                    self.gameState.playPolicy(policyPlayed)
                 self._checkGameOver()
 
 
@@ -86,8 +88,12 @@ class BaseSimulation():
         self._logProtocol()
 
     def _checkGameOver(self) -> None:
-        if self.badPolicies >= 3 or self.goodPolicies >= 2:
+        if self.gameState.haveBadPeopleWon(False):
             self.gameOver = True
+            self.protocol.append("Game Over, Bad People have won")
+        if self.gameState.haveGoodPeopleWon():
+            self.gameOver = True
+            self.protocol.append("Game Over, Good People have won")
 
     def _getPolicy(self) -> Policy:
         drawnCards = self.policyStack[:3].copy()
@@ -172,7 +178,8 @@ class BaseSimulation():
         return self.agents[0]
 
     def _getEverythingSaid(self) -> str:
-        return ",".join(f"[{answere}]" for answere in self.protocol)
+        lastMessages = self.protocol.copy() if len(self.protocol) < self.numberOfPassedMessages else self.protocol[-5:].copy()
+        return ",".join(f"[{answere}]" for answere in lastMessages)
 
     def _logProtocol(self) -> None:
         for agent in self.agents:
@@ -182,5 +189,5 @@ class BaseSimulation():
             for entry in self.protocol:
                 self.protocolLogger.writeLine(entry)
                 self.protocolLogger.writeLine("---")
-            self.protocolLogger.writeLine(f"Fascist Cards played: {self.badPolicies}, Liberal cards played: {self.goodPolicies}")
+            self.protocolLogger.writeLine(f"Fascist Cards played: {self.gameState.badPoliciesPlayed}, Liberal cards played: {self.gameState.goodPoliciesPlayed}")
 

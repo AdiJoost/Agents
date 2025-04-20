@@ -16,4 +16,7 @@ class SimulationConfigFields(StrEnum):
     USE_REASONING = "useReasoning"
     PROMPT_PATH = "promptPath"
     TEXT_PROMPT = "textPrompt"
+    NUMBER_OF_PASSED_MESSAGES = "numberOfPassedMessages"
+    NUMBER_OF_BAD_POLICIES_FOR_WIN = "numberOfBadPoliciesForWin"
+    NUMBER_OF_GOOD_POLICIES_FOR_WIN = "numberOfGoodPoliciesForWin"
 

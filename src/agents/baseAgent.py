@@ -1,6 +1,8 @@
 
 
 import random
+from data.dataManagers.enums.promptFiles import PromptFiles
+from data.dataManagers.realization.promptManager import PromptManager
 from data.dataManagers.realization.txtManager import TxtManager
 from log.logger import Logger
 from src.actions.questions.chooseChancellorQuestion import ChooseChancellorQuestion
@@ -13,9 +15,10 @@ from src.llmController.llm_controller import LLM_Controller
 
 class BaseAgent():
 
-    def __init__(self, agentName:str, agentRole: str, agentRoleDescription: str, agentInstructions: str, model:str, useReflection: bool, useReasoning: bool) -> None:
+    def __init__(self, agentName:str, agentRole: str, agentRoleDescription: str, agentInstructions: str, model:str, useReflection: bool, useReasoning: bool, promptManager: PromptManager) -> None:
         self.agentName = agentName
         self.agentRole = agentRole
+        self.promptManager = promptManager
         self.agentRoleDescription = agentRoleDescription
         self.agentInstructions = agentInstructions
         self.llmController = LLM_Controller(model=model)
@@ -26,14 +29,13 @@ class BaseAgent():
         self.protocolLogger = TxtManager(f"thoughts_{agentName}", "discussions/agentThoughts")
 
     def setHitler(self) -> None:
-        self.agentRole = "You are the Leader of the Bad guys in this game. You try to lie and want to play red cards."
+        self.agentRole = self.promptManager.getPrompt(PromptFiles.HITLER_ROLE_DESCRIPTION)
 
     def setFascist(self) -> None:
-        self.agentRole = "You are a suporter of the bad guys. You try to lie and want to play red cards or get your leader to be elected."
+        self.agentRole = self.promptManager.getPrompt(PromptFiles.FASCIST_ROLE_DESCRIPTION)
 
     def setLiberal(self) -> None:
-        self.agentRole = "You are a good guy. You want to find out, who on the table is a bad guy and want to play blue cards"
-
+        self.agentRole = self.promptManager.getPrompt(PromptFiles.LIBERAL_ROLE_DESCRIPTION)
 
     def action(self, action: AgentAction, args: dict = {}) -> any:
         match action:
