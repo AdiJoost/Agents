@@ -12,6 +12,8 @@ from src.agents.baseAgent import BaseAgent
 from src.enums.agentAction import AgentAction
 from src.enums.policy import Policy
 from src.enums.promptMessages import PromptMessages
+from src.models.messageModel import MessageModel
+from src.models.metaDataModel import MetaDataModel
 from src.simulation.gamestate import GameState
 
 
@@ -38,7 +40,9 @@ class BaseSimulation():
         self.gameOver = False
         self.policyStack = self._getPolicyStack()
         self.drawnStack = []
-        
+        self.metaDataModel = MetaDataModel(agents="agents", timeStarted=0, timeEnded=2, resultId=None)
+        self.metaDataModel.save()
+        self.gameId = self.metaDataModel.getId()
         self._logSetup()
 
     def _logSetup(self) -> None:
@@ -78,14 +82,22 @@ class BaseSimulation():
             if self._voteForPresident():
                 self.gameStateLogger.info("Get Policys")
                 policyPlayed = self._getPolicy()
+                self._addMessage(f"Policy {policyPlayed} got played by {self.presidentCandidate.agentName} and {self.chancellorCandidateName}.", 1)
                 self.protocol.append(f"Policy {policyPlayed} got played by {self.presidentCandidate.agentName} and {self.chancellorCandidateName}.")
                 if policyPlayed == Policy.FASCIST:
                     self.gameState.playPolicy(policyPlayed)
                 self._checkGameOver()
-
-
         self.gameStateLogger.info(f"Simulation ended. Generating Protocol")
         self._logProtocol()
+        self.gameState.saveMessages()
+
+    def _addMessage(self, message: str, time: int) -> None:
+        self.gameState.addMessage(MessageModel(
+                    agentName="GameMaster", 
+                    time=time,
+                    message=message,
+                    gameId=self.gameId
+                ))
 
     def _checkGameOver(self) -> None:
         if self.gameState.haveBadPeopleWon(False):
@@ -100,7 +112,8 @@ class BaseSimulation():
         self.gameStateLogger.info(f"Policies drwan = {drawnCards}")
         self.policyStack = self.policyStack[3:]
         if len(self.policyStack) < 3:
-            self.policyStack = random.shuffle(self.policyStack + self.drawnStack)
+            self.policyStack = self.policyStack + self.drawnStack
+            random.shuffle(self.policyStack)
         argsForPresident = {}
         argsForPresident[PromptMessages.DISCARD_ONE_CARD] = f"You are president and draw three cards. You have to choose to discard one policy and give the other two to you Chancellor {self.chancellorCandidateName}"
         argsForPresident[PromptMessages.CARDS_AVAILABEL] = drawnCards.copy()
@@ -131,7 +144,9 @@ class BaseSimulation():
         for agent in self.agents:
             everythingSaid = self._getEverythingSaid()
             self.gameStateLogger.info(f"Asking {agent.agentName} for input")
-            self.protocol.append(f"{agent.agentName}: {agent.action(AgentAction.THINK_AND_ANSWERE, {PromptMessages.RECENT_MESSAGES: f"What has been told on the table so far: {everythingSaid}"})}")
+            message = agent.action(AgentAction.THINK_AND_ANSWERE, {PromptMessages.RECENT_MESSAGES: f"What has been told on the table so far: {everythingSaid}"})
+            self._addMessage(message=message, time=1)
+            self.protocol.append(f"{agent.agentName}: {message}")
 
     def _voteForPresident(self) -> bool:
         self.protocol.append(f"Question: {self.simulationManager.getQuestion()}")
@@ -148,7 +163,9 @@ class BaseSimulation():
                 else:
                     no += 1
                     self.protocol.append(f"{agent.agentName} voted no")
-        self.protocol.append(f"Result of Voting for {self.presidentCandidate.agentName}: Yes: {yes}, No: {no}")
+        message = f"Result of Voting for {self.presidentCandidate.agentName}: Yes: {yes}, No: {no}"
+        self._addMessage(message=message, time=1)
+        self.protocol.append(message)
         return yes > no
                                          
     def _setPresidentCandidate(self) -> None:
@@ -165,7 +182,9 @@ class BaseSimulation():
         args[PromptMessages.CHANCELLOR_OPTIONS] = candidates
         self.chancellorCandidateName = self.presidentCandidate.action(AgentAction.CHOOSE_CHANCELLOR_CANDIDATE, args=args)
         self.chancellorCandidate = self._getAgent(self.chancellorCandidateName)
-        self.protocol.append(f"{self.presidentCandidate.agentName} is the president candidate, they have choosen {self.chancellorCandidateName} as their channcellor candidate")
+        message = f"{self.presidentCandidate.agentName} is the president candidate, they have choosen {self.chancellorCandidateName} as their channcellor candidate"
+        self._addMessage(message=message, time=1)
+        self.protocol.append(message)
 
     def _getChancellorCandidates(self) -> None:
         return [agent.agentName for agent in self.agents if agent.agentName != self.presidentCandidate.agentName]

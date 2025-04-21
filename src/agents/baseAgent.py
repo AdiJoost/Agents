@@ -19,11 +19,8 @@ class BaseAgent():
         self.agentName = agentName
         self.agentRole = agentRole
         self.promptManager = promptManager
-        self.agentRoleDescription = agentRoleDescription
         self.agentInstructions = agentInstructions
         self.llmController = LLM_Controller(model=model)
-        self.useReasoning = useReasoning
-        self.useReflection = useReflection
         self.thoughts = []
         self.logger = Logger()
         self.protocolLogger = TxtManager(f"thoughts_{agentName}", "discussions/agentThoughts")
@@ -102,11 +99,7 @@ class BaseAgent():
     
     def _addInstructionsAndPastMessages(self, messages: list, prompts: str) -> None:
         messages.append({"role": "user", "content": self.agentInstructions})
-        if self.useReasoning or self.useReflection:
-            messages.append({"role": "user", "content": f"These are your past thoughts: {','.join(self.thoughts)}"})
         messages.append({"role": "user", "content": prompts})
-        self._reason(messages)
-        self._reflect(messages)
 
     def _reason(self, messages: list) -> None:
         if self.useReasoning:  

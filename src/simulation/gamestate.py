@@ -1,6 +1,8 @@
 
 
+from typing import List
 from src.enums.policy import Policy
+from src.models.messageModel import MessageModel
 
 
 class GameState():
@@ -13,6 +15,7 @@ class GameState():
         self.inspectingNumbers = inspectingNumbers
         self.badPoliciesPlayed = 0
         self.goodPoliciesPlayed = 0
+        self.gameProtocol: List[MessageModel] = []
 
     def playPolicy (self, policy: Policy) -> None:
         if policy == Policy.LIBERAL:
@@ -38,6 +41,22 @@ class GameState():
         if policyPlayed == Policy.LIBERAL:
             return False
         return self.badPoliciesPlayed in self.inspectingNumbers
+    
+    def addMessage(self, message: MessageModel) -> None:
+        self.gameProtocol.append(message)
+
+    def getMessage(self, numberOfPassedMessages: int) -> str:
+        if numberOfPassedMessages < 1:
+            return ""
+        messages = self.gameProtocol[-numberOfPassedMessages:] if len(self.gameProtocol) > numberOfPassedMessages else self.gameProtocol
+        returnValue = ""
+        for message in messages:
+            returnValue += f"-{message.agentName}-:{message.message}"
+        return returnValue
+    
+    def saveMessages(self) -> None:
+        for message in self.gameProtocol:
+            message.save()
     
     def getGameStatePrompt(self) -> str:
         return f"On the Board are {self.goodPoliciesPlayed} liberal cards played and {self.badPoliciesPlayed} fascist cards played."
