@@ -16,6 +16,7 @@ class GameState():
         self.badPoliciesPlayed = 0
         self.goodPoliciesPlayed = 0
         self.gameProtocol: List[MessageModel] = []
+        self.time = 0
 
     def playPolicy (self, policy: Policy) -> None:
         if policy == Policy.LIBERAL:
@@ -43,7 +44,11 @@ class GameState():
         return self.badPoliciesPlayed in self.inspectingNumbers
     
     def addMessage(self, message: MessageModel) -> None:
+        message.setTime(self.time)
         self.gameProtocol.append(message)
+
+    def increaseTime(self) -> None:
+        self.time += 1
 
     def getMessage(self, numberOfPassedMessages: int) -> str:
         if numberOfPassedMessages < 1:

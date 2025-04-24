@@ -6,7 +6,7 @@ class MessageModel(BaseModel):
 
     COLLECTION_NAME = "message"
 
-    def __init__(self, agentName: str, time: int, message: str, gameId: ObjectId, _id: ObjectId=None) -> None:
+    def __init__(self, agentName: str, message: str, gameId: ObjectId, time: int=0, _id: ObjectId=None) -> None:
         self._id = _id
         self.agentName = agentName
         self.time = time

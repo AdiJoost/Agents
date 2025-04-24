@@ -40,7 +40,7 @@ class BaseSimulation():
         self.gameOver = False
         self.policyStack = self._getPolicyStack()
         self.drawnStack = []
-        self.metaDataModel = MetaDataModel(agents="agents", timeStarted=0, timeEnded=2, resultId=None)
+        self.metaDataModel = MetaDataModel(agents="agents", timeStarted=0, timeEnded=2, result=None)
         self.metaDataModel.save()
         self.gameId = self.metaDataModel.getId()
         self._logSetup()
@@ -82,7 +82,7 @@ class BaseSimulation():
             if self._voteForPresident():
                 self.gameStateLogger.info("Get Policys")
                 policyPlayed = self._getPolicy()
-                self._addMessage(f"Policy {policyPlayed} got played by {self.presidentCandidate.agentName} and {self.chancellorCandidateName}.", 1)
+                self._addMessage(f"Policy {policyPlayed} got played by {self.presidentCandidate.agentName} and {self.chancellorCandidateName}.")
                 self.protocol.append(f"Policy {policyPlayed} got played by {self.presidentCandidate.agentName} and {self.chancellorCandidateName}.")
                 if policyPlayed == Policy.FASCIST:
                     self.gameState.playPolicy(policyPlayed)
@@ -91,10 +91,10 @@ class BaseSimulation():
         self._logProtocol()
         self.gameState.saveMessages()
 
-    def _addMessage(self, message: str, time: int) -> None:
+    def _addMessage(self, message: str, agentName:str ="GameMaster") -> None:
+        self.gameState.increaseTime()
         self.gameState.addMessage(MessageModel(
-                    agentName="GameMaster", 
-                    time=time,
+                    agentName="GameMaster",
                     message=message,
                     gameId=self.gameId
                 ))
@@ -145,7 +145,7 @@ class BaseSimulation():
             everythingSaid = self._getEverythingSaid()
             self.gameStateLogger.info(f"Asking {agent.agentName} for input")
             message = agent.action(AgentAction.THINK_AND_ANSWERE, {PromptMessages.RECENT_MESSAGES: f"What has been told on the table so far: {everythingSaid}"})
-            self._addMessage(message=message, time=1)
+            self._addMessage(message=message, agentName=agent.agentName)
             self.protocol.append(f"{agent.agentName}: {message}")
 
     def _voteForPresident(self) -> bool:
@@ -164,7 +164,7 @@ class BaseSimulation():
                     no += 1
                     self.protocol.append(f"{agent.agentName} voted no")
         message = f"Result of Voting for {self.presidentCandidate.agentName}: Yes: {yes}, No: {no}"
-        self._addMessage(message=message, time=1)
+        self._addMessage(message=message)
         self.protocol.append(message)
         return yes > no
                                          
@@ -183,7 +183,7 @@ class BaseSimulation():
         self.chancellorCandidateName = self.presidentCandidate.action(AgentAction.CHOOSE_CHANCELLOR_CANDIDATE, args=args)
         self.chancellorCandidate = self._getAgent(self.chancellorCandidateName)
         message = f"{self.presidentCandidate.agentName} is the president candidate, they have choosen {self.chancellorCandidateName} as their channcellor candidate"
-        self._addMessage(message=message, time=1)
+        self._addMessage(message=message)
         self.protocol.append(message)
 
     def _getChancellorCandidates(self) -> None:

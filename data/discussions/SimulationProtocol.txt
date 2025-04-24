@@ -3,35 +3,13 @@ You are an agent in the game Secret Hitler. Your role is either Liberal, Fascist
 ---
 Tom is the president candidate, they have choosen kyve as their channcellor candidate
 ---
-Tom: "Hey guys, great choices so far! Kyve seems like a solid chancellor candidate. I'm still not sure about this policy combo though - we can't afford to take any risks yet. Let's focus on building some trust and gathering more info. @Alex, what do you think about the fascist policies that have been floated around? Are we too early to start worrying?"
+Tom: Hey guys, sounds like we've got a solid team here! I'm happy to see Kyve as our Chancellor candidate - I think he's great too! As for me, I'm just gonna have to play it safe and not propose anything right now. Can anyone tell me more about what they're thinking in terms of policy? Let's keep the conversation friendly and focused on finding common ground.
 ---
-Helena: "Uh, I don't know about those fascist policies... I mean, we should be careful, but we can't just ignore them either, right? *pauses* @Alex, do you think Tom's trying to shift the focus away from the real issue? Like, is he hiding something? I'm still not sure about Kyve, but at least he's not saying much... *trails off* Oh, wait, I just thought of something - if we investigate the fascist policies now, we can clear the air and make a more informed decision. What do you guys think?"
+Helena: "Uh, yeah... I think we should all just, like, get to know each other a bit more, you know? Sounds good to me if Kyve is our Chancellor! *nervous laugh* As for policies... I'm happy to discuss that, but I don't want to be too forward, you know? Maybe someone else wants to start the conversation?"
 ---
-Kyve: "Hold up, guys, let's not get too ahead of ourselves. Tom's trying to play it cool, but I'm not buying it. @Helena, what's with all these questions about fascist policies? Is she trying to deflect? And @Tom, you're not even trying to hide your bias anymore. We should be talking about the real issues, like how many fascists are on this table. Investigating those policies now would be a great way to get some clarity and move forward."
+Kyve: "Honestly, guys, I'm still trying to wrap my head around Tom's decision to choose me as Chancellor candidate. I mean, I'm flattered, but also a bit concerned? *pauses* As for policies, I think we should all take a step back and get to know each other better first. Can't have too much drama in this game, right? *nervous laugh* Let's just... let's just agree on that for now. *avoids eye contact with Tom*"
 ---
-Max: "Guys, come on... let's not be paranoid here. @Helena, I think you're reading too much into this. We can discuss fascist policies all we want, but at this point, it's just noise. And @Kyve, Tom's not hiding anything. He's just trying to bring us together. We should focus on building trust and passing some actual policies, like that last combo. Vote YES, let's move forward."
----
-Question: Do you vote for the choosen president and chancellor? Answere only with yes or no
----
-Tom voted no
----
-Helena voted no
----
-Kyve voted yes
----
-Max voted yes
----
-Result of Voting for Tom: Yes: 2, No: 2
----
-Helena is the president candidate, they have choosen max as their channcellor candidate
----
-Tom: "Hey guys, thanks for the vote of confidence! I'm glad we can move forward together. With Helena as our president candidate and Max as their chancellor candidate, I think it's a great start. However, let's make sure we have a solid liberal policy in place first. Can anyone suggest a policy to get us started? And just to clarify, I'm good with whoever is running for president - but I do want to make sure our government is set up for the liberals' goals."
----
-Helena: "Uh, hi everyone! *nervous smile* So, I'm glad we're all on the same page here. Tom's right, let's focus on getting a solid liberal policy first. I don't want to rush into anything without making sure we have a good foundation. *pauses* Hmm, what do you guys think about... *trails off* Oh, wait! I remember! We can't pass any policies yet until the government is set up correctly. *looks at Max* Right? So, let's just focus on getting our candidate in place and then we can discuss policy options. *nervous laugh*"
----
-Kyve: "Ugh, can we just get this over with? We need a president, not some watered-down liberal nonsense. Let's just vote for Helena, she's the only one who doesn't want to ruin everything. And Max, don't even think about trying to screw us over as chancellor. We all know you're not on our side."
----
-Max: "Vote YES for Helena, she's our only choice for President. We can't let Tom's ' confidence' speech sway us from our goals. And Max, don't listen to Kyve's threats, we need your support as Chancellor to move forward."
+Max: "Alright guys, let's get down to business. We've got a Chancellor already chosen, so we can skip that step. I'm good with Kyve as Chancellor, but Tom, we should be discussing policies now, not how much we like each other. Helena, what do you think about passing some kind of bill? Something to get us started on the right track?"
 ---
 Question: Do you vote for the choosen president and chancellor? Answere only with yes or no
 ---
@@ -41,293 +19,65 @@ Helena voted no
 ---
 Kyve voted yes
 ---
-Max voted no
----
-Result of Voting for Helena: Yes: 1, No: 3
----
-Kyve is the president candidate, they have choosen tom as their channcellor candidate
----
-Tom: "Hey guys, just a friendly thought - since we've got Kyve as the president candidate and I'm honored to be their chancellor candidate, let's make sure our first vote is for a policy that doesn't involve any... unpleasantness. How about we focus on passing something like 'Religious Freedom'? It's a pretty broad topic, but I think we can all agree it's something we want to protect. What do you guys think?"
----
-Helena: "Oh my goodness, I'm so glad Tom brought that up! Religious Freedom is a great idea, and I think we can all get behind that. It's like, really important for our community to be able to practice their faith freely, right? *nervous laugh* But at the same time, I don't want to rush into anything without thinking it through. Can we maybe... take a closer look at the policy cards and make sure we're not missing any other options? I mean, we don't want to pass something that might not be in our best interest down the line."
----
-Kyve: "Religious Freedom? Sounds good, but let's not get too distracted. I think we should also look at the other policies. *pauses* Tom mentioned a 'Religious Freedom' that's pretty broad, and Helena wants to make sure it doesn't have any... unpleasant consequences. * looks at Helena suspiciously slightly* Can we really trust her on this? We don't want to pass something that might come back to bite us later."
----
-Max: "Guys, I think we're overthinking this. We need to focus on passing a policy already. Let's just vote for 'Religious Freedom'. It's not like we can afford to be picky right now. Tom's got it right, let's keep it simple and safe."
----
-Question: Do you vote for the choosen president and chancellor? Answere only with yes or no
----
-Tom voted no
----
-Helena voted yes
----
-Kyve voted yes
----
 Max voted yes
----
-Result of Voting for Kyve: Yes: 3, No: 1
----
-Policy fascist got played by Kyve and tom.
----
-Max is the president candidate, they have choosen tom as their channcellor candidate
----
-Tom: "Hey everyone, sounds like we're getting somewhere! Kyve's vote definitely sets a tone for how this round is going to play out. I'm happy to see Max stepping up as President candidate and trusting me as their Chancellor candidate - that's a huge weight off my shoulders.
-
-I think it's time for us to focus on passing some policies, though. We can't let the fascists get ahead of us. Tom, what do you say we work together to pass some liberal policies? Maybe we can even see if there's any suspicious activity going on here?"
----
-Helena: "Uh, yeah I guess that sounds like a good idea Tom... I mean, we can't let anyone get ahead of us. *nervous laugh* But, uh, I don't know if I'm really comfortable with, like, trusting Max's vote just yet. Can we, like, investigate the fascist policy first? Just to be safe?"
----
-Kyve: "Come on guys, let's focus! Tom's got this whole president thing under control. We need to pass some policies, not waste time investigating stuff. Helena, I'm with you, we can't trust Max just yet, but Tom's got our backs, he's trustworthy. Let's move forward, vote yes to the liberal policy, we can investigate after that."
----
-Max: "Vote YES! We need to move forward and pass some policies, guys! Tom's got this whole thing under control and we can investigate after that. Let's not let the fascists get ahead of us. We can't trust anything Max says just yet, but we've got Tom on our side. Come on, guys, let's vote YES!"
----
-Question: Do you vote for the choosen president and chancellor? Answere only with yes or no
----
-Tom voted yes
----
-Helena voted yes
----
-Kyve voted no
----
-Max voted yes
----
-Result of Voting for Max: Yes: 3, No: 1
----
-Policy liberal got played by Max and tom.
----
-Tom is the president candidate, they have choosen kyve as their channcellor candidate
----
-Tom: "Alright guys, I think we should focus on passing liberal policies to get us closer to our goal. Kyve as Chancellor is a good start, and we should keep an eye on how he plays his cards. Max's initial yes vote might be a red flag, but we can't jump to conclusions yet. Let's keep the conversation open and see where this takes us."
----
-Helena: "Wait, I'm not sure about Max's vote... it does seem suspicious, but Tom's trying to keep us open-minded? I don't wanna jump to conclusions. Can we really trust Kyve as Chancellor yet? Shouldn't we investigate further before making any decisions?"
----
-Kyve: "Uh, yeah, Tom's right... I mean, let's not jump to conclusions, Helena. Max's initial vote was weird, but we can't just assume Kyve is a fascist yet. We need more info. Can we at least discuss what the policy card was again? Maybe that'll give us some insight?"
----
-Max: "Fellow players, let's keep Tom's words in mind. We do need to be cautious, but jumping to conclusions might be counterproductive. However, I still believe we should pass liberal policy to start. It's a solid foundation, and we can't afford to look back. Vote YES for the liberal policy."
----
-Question: Do you vote for the choosen president and chancellor? Answere only with yes or no
----
-Tom voted no
----
-Helena voted yes
----
-Kyve voted yes
----
-Max voted yes
----
-Result of Voting for Tom: Yes: 3, No: 1
----
-Policy liberal got played by Tom and kyve.
----
-Helena is the president candidate, they have choosen kyve as their channcellor candidate
----
-Tom: "Hey guys, thanks for the vote of trust! I'm glad we're all on the same page here. Since we've got a liberal policy on the table, I think it's our best bet to pass it and move forward. Can we all just agree to put this behind us and focus on the future? No need to jump to conclusions or accuse anyone... yet."
----
-Helena: "Uh, guys, I'm really glad we're all working together here. Tom's right, let's focus on moving forward. I don't want to jump to conclusions either... *pauses* Wait, why did kyve play that liberal policy if he was already a fascist? *nervous laugh* Oh, nevermind, it's just RNG, right?"
----
-Kyve: "Hey, guys, calm down. Let's not jump to conclusions. Tom's right, we should focus on moving forward. I'm just glad we've got a liberal policy out there. *looks at Helena* I don't know why Helena's being so suspicious all of a sudden. It's just a game, let's not read too much into it. * glance at Kyve* And I'm pretty sure I didn't play that policy to hinder the liberal side, it was RNG. Let's keep the discussion civil."
----
-Max: "Fellow players, let's not focus too much on Tom's vote of trust. It's just a nice gesture, but we need to keep our eyes open for potential fascist moves. I think we should all just agree to move forward and not jump to conclusions... yet."
----
-Question: Do you vote for the choosen president and chancellor? Answere only with yes or no
----
-Tom voted no
----
-Helena voted yes
----
-Kyve voted no
----
-Max voted no
----
-Result of Voting for Helena: Yes: 1, No: 3
----
-Kyve is the president candidate, they have choosen tom as their channcellor candidate
----
-Tom: "Hey guys, just wanted to chime in on the vote for Helena. I think it's great we're all having this conversation and getting to know each other better. With 1 yes and 3 no's, I'm gonna have to agree with Kyve on this one. Let's keep an open mind and see what happens next."
----
-Helena: I think Tom makes a great point! It seems like we're all getting a bit carried away here. I'm just happy to be having this conversation and learning more about each other. But, if I'm being completely honest, one "yes" does stand out to me as... slightly suspicious? Just a thought!
----
-Kyve: "Oh man, I don't know about this Helena guy being that suspicious, guys. Tom's right, let's keep it open-minded. But, I gotta say, 1 yes and 3 no's is a pretty tight margin. You think we should just move on to something else? I'm good with passing the policy, but we need to figure out who's getting voted for Chancellor next."
----
-Max: "Alright guys, let's keep it real. One 'yes' doesn't mean much when 3 people are saying no. We gotta think about what's best for everyone, not just who's getting voted out. I'm gonna go with Kyve on this one and move on to the next policy. Who's up for investigating?"
----
-Question: Do you vote for the choosen president and chancellor? Answere only with yes or no
----
-Tom voted yes
----
-Helena voted no
----
-Kyve voted no
----
-Max voted yes
----
-Result of Voting for Kyve: Yes: 2, No: 2
----
-Max is the president candidate, they have choosen tom as their channcellor candidate
----
-Tom: "Hey guys, thanks for the vote of trust in choosing me as Chancellor! I'm honored to serve alongside Max as President candidate. Before we proceed, I just want to clarify - has anyone seen the policy cards that were drawn? We should all get a look at them to make informed decisions. Let's keep an open conversation going and see how we can work together to pass some great policies for our community."
----
-Helena: "Hey guys, I'm glad Tom brought that up! Let's definitely take a look at those policy cards. I'm curious, Tom, did you draw them before voting or after? Also, Tom, being new to this, can you tell me more about what we're aiming for in terms of policies?"
----
-Kyve: "Umm, yeah, Tom's right. We should definitely see those policy cards. I'm curious too, didn't Max get them before voting? Tom, can we take a look at 'Emancipation' and 'Prohibition'? Those ones are suspiciously liberal."
----
-Max: "Whoa, let's not jump to conclusions here! We've got a new Chancellor, Tom, and we're all about collaboration. I mean, come on guys, we're all in this together, right? But seriously, Helena, can someone pls pass those policy cards already? It'll be super helpful for us to see what we're working with. And Kyve, let's not be too hasty, Emancipation and Prohibition are just trying to spark a discussion, maybe we can learn from each other's perspectives?"
----
-Question: Do you vote for the choosen president and chancellor? Answere only with yes or no
----
-Tom voted no
----
-Helena voted no
----
-Kyve voted no
----
-Max voted no
----
-Result of Voting for Max: Yes: 0, No: 4
----
-Tom is the president candidate, they have choosen max as their channcellor candidate
----
-Tom: "Hey guys, I just want to make sure we're all on the same page here. I know some of us are concerned about Max being our Chancellor candidate, but let's focus on the bigger picture. We can't afford to split the vote or create unnecessary drama. As your President candidate, my goal is to ensure we work together as a team. Let's take a deep breath and think about what's best for everyone. If we all just stick together and communicate openly, I'm confident we can achieve great things."
----
-Helena: "Hey guys, I just want to add my two cents... I'm not sure about Max being our Chancellor candidate either, but I do think we need to focus on moving forward together. Tom's right, let's not create drama and make things more complicated than they have to be. Can we at least agree that we'll support whoever gets elected Chancellor if it means we can work together as a team? Maybe we should just stick to discussing our concerns with each other privately, like, maybe in a group chat or something? I don't want anyone to feel uncomfortable sharing their thoughts."
----
-Kyve: "Hey guys, can we take a step back? I'm getting frustrated with all this back-and-forth. Tom's right, let's focus on moving forward together. We can discuss our concerns privately, like Helena said. But for now, let's just vote for Tom as President and see where that takes us. Who's with me?"
----
-Max: "Guys, come on. We're not going to win if we're splitting the vote. Tom's our best shot at unity. I'm in for President and Chancellor. Let's move forward."
----
-Question: Do you vote for the choosen president and chancellor? Answere only with yes or no
----
-Tom voted no
----
-Helena voted yes
----
-Kyve voted yes
----
-Max voted no
----
-Result of Voting for Tom: Yes: 2, No: 2
----
-Helena is the president candidate, they have choosen kyve as their channcellor candidate
----
-Tom: "Hey guys, thanks for the vote of trust! I'm glad we're on the same page. Since Helena is our President candidate and Kyve is her Chancellor candidate, let's make sure we're working together to pass some great policies. Max, no worries about your 'no' vote earlier - we can always discuss it later. I think we should all take a moment to review the policy cards and figure out which ones are most important for our team. Who's up for that?"
----
-Helena: "Oh my gosh, thank you so much, Tom! I'm really honored that you guys trust me as President candidate. And Kyve, I know we just voted for you as Chancellor, but I want to make sure we're all on the same page and working together effectively. Max, don't worry about your earlier vote - I'm happy to discuss it with you later. Yeah, let's take a closer look at the policy cards and figure out which ones would be best for our team. Can someone pass the deck?"
----
-Kyve: "Hey guys, let's keep Max's vote in mind, but we shouldn't worry about it too much right now. Tom, I appreciate the vote of trust, and Helena, thanks for choosing me as Chancellor candidate. Let's focus on reviewing these policy cards and figure out which ones are most important. Can we pass the deck?"
----
-Max: "Alright guys, I think Tom's got a good point. We need to work together if we're gonna get anything done. Let's pass the deck and take a closer look at these policy cards. Who knows which ones are most important for our team?"
----
-Question: Do you vote for the choosen president and chancellor? Answere only with yes or no
----
-Tom voted no
----
-Helena voted no
----
-Kyve voted no
----
-Max voted yes
----
-Result of Voting for Helena: Yes: 1, No: 3
----
-Kyve is the president candidate, they have choosen tom as their channcellor candidate
----
-Tom: "Hey guys, seems like we've got some people who aren't too keen on moving forward. I'm curious, @Kyve, can you tell us more about why you voted no? And @Helena, same for you. Also, I think it's great that we have @Tom as our Chancellor candidate - he's been working hard to make sure our city is a good place for everyone."
----
-Helena: "Uh, I don't know... I just had some doubts about it, I guess. I was thinking maybe we should hold off for a sec? *gets distracted* Oh look, Tom's being really nice, I love that about him! *snaps back to reality* Wait, no, I mean... if I voted no, it's probably because I'm just not sure what the policy is yet. Can someone explain it again? *looks around awkwardly*"
----
-Kyve: "Hey guys, let's focus on the policies at hand. I don't know much about this one, can someone explain it again? *looks around awkwardly* Oh, Tom said something about making sure our city is a good place for everyone... sounds good to me."
----
-Max: "Honestly, I'm still trying to wrap my head around it all. But from what I've gathered, we're supposed to vote on some policy that Tom's been going on about making sure our city is a good place for everyone... sounds pretty good to me."
----
-Question: Do you vote for the choosen president and chancellor? Answere only with yes or no
----
-Tom voted no
----
-Helena voted yes
----
-Kyve voted no
----
-Max voted yes
----
-Result of Voting for Kyve: Yes: 2, No: 2
----
-Max is the president candidate, they have choosen tom as their channcellor candidate
----
-Tom: "Hey guys, thanks for the vote of trust! I'm honored to be Max's chosen Chancellor candidate. Before we proceed, I think it's a great idea to discuss our goals and strategies as a team. As your fellow liberal, I want to ensure we're all on the same page. Has anyone noticed anything suspicious about Kyve's behavior? Let's make sure we're not missing any red flags. And just to clarify, I'll do my best to make informed decisions that benefit our team."
----
-Helena: "Hey guys, thanks for the vote of trust! I'm honored to be Max's chosen Chancellor candidate... but let's keep an open mind here, right? Tom mentioned something about Kyve's behavior being suspicious... I don't want to jump to conclusions, but at the same time, we should stay vigilant. Has anyone noticed anything else unusual about our fellow players? Before we proceed with choosing a Chancellor, can we discuss some of the policy cards that have been passed so far and see if there's any pattern or inconsistency?"
----
-Kyve: "Hey guys, thanks for the vote of trust! I'm honored to be Max's chosen Chancellor candidate... but let's keep an open mind here, right? Tom mentioned something about Kyve's behavior being suspicious... I don't want to jump to conclusions, but at the same time, we should stay vigilant. Has anyone noticed anything else unusual about our fellow players? Before we proceed with choosing a Chancellor, can we discuss some of the policy cards that have been passed so far and see if there's any pattern or inconsistency?"
----
-Max: "Alright guys, let's keep it real here. Tom just saved us from a potentially explosive situation by keeping an open mind about Kyve's behavior. I'm not buying into the conspiracy theories yet, but we do need to keep an eye on everyone's actions. I think we should focus on the policies that have been passed so far and see if there's any pattern or inconsistency. Who's ready to discuss the policy cards?"
----
-Question: Do you vote for the choosen president and chancellor? Answere only with yes or no
----
-Tom voted no
----
-Helena voted no
----
-Kyve voted no
----
-Max voted yes
----
-Result of Voting for Max: Yes: 1, No: 3
----
-Tom is the president candidate, they have choosen helena as their channcellor candidate
----
-Tom: "Hey everyone, thanks for considering me as President. I'm glad Helena is our Chancellor candidate - she's a great choice. Since Max got in with just one yes, let's make sure we're all on the same page and not jump to conclusions too quickly. Given the result of the vote, it seems like we still have some work to do to pass liberal policies. How about we focus on getting to know each other better and building a stronger team?"
----
-Helena: "Oh my god, thank you so much, Tom! *gets nervous* I mean, I'm really honored to be chosen as Chancellor candidate... *pauses* You know, Max's vote was a bit concerning, but like, we can't jump to conclusions right? *looks around nervously* I'm just going to take this as an opportunity to get to know all of you better and make sure we're all on the same page. *accidentally stares at Max for too long* Sorry, sorry! *clears throat* Let's definitely focus on building a stronger team and getting those liberal policies passed... maybe we can even have some... I don't know, game night or something? *nervous smile*"
----
-Kyve: "Uh, yeah, Tom's right. Let's not jump to conclusions too quickly, huh? *nervous chuckle* I mean, one 'yes' doesn't necessarily mean we're in trouble yet. Can we just... get to know each other a bit better first? *looks around awkwardly* And, uh, Helena, thanks for being honest about your concerns. That's really... mature of you."
----
-Max: "Yo, come on guys, let's not waste time getting to know each other! We got a job to do here. Tom's right, we can't just jump to conclusions based on one vote. But at the same time, I'm pretty sure that guy over there *points at Max* is hiding something. Just saying. Let's focus on building that team and passing those liberal policies. Who's with me?"
----
-Question: Do you vote for the choosen president and chancellor? Answere only with yes or no
----
-Tom voted yes
----
-Helena voted no
----
-Kyve voted yes
----
-Max voted no
 ---
 Result of Voting for Tom: Yes: 2, No: 2
 ---
 Helena is the president candidate, they have choosen tom as their channcellor candidate
 ---
-Tom: "Hey guys, thanks for the vote of trust! I'm honored to be chosen as Chancellor candidate by Helena's team. Let's work together to pass some policies that'll benefit everyone, shall we? Who's up for discussing the agenda?"
+Tom: "Hey everyone, thanks for choosing me as Chancellor! I'm glad Helena picked me - I think we can work well together. Before we start, I just want to make sure everyone is on the same page: let's focus on passing policies that benefit our community, shall we? What do you guys think about starting with a policy on education?"
 ---
-Helena: "Guys, I'm glad Tom was chosen as Chancellor candidate! It's awesome how we're all coming together like this. As for our agenda, let's keep it light and friendly for now. How about we discuss some policy ideas that could bring us closer together? Maybe we can get some input from the other players on what they think would be beneficial for everyone?"
+Helena: "Uh, yeah... I'm totally stoked that we all agree on working together! Education is such a great topic - I think we can definitely make a positive impact. But, um, I was wondering, has anyone else thought about, like, maybe focusing on another policy first? I don't want to rush into anything without making sure everyone's on the same page... and, oh wait, what do you guys think about the new initiative Tom mentioned?"
 ---
-Kyve: "Yo, Tom's all smiles, right? I'm just gonna sit back and see how this goes. Can we really keep it light and friendly? I mean, I'm happy for Helena and her team, but some of these policies we're talking about could be super divisive. We should probably get some more liberal ideas on the table to balance things out."
+Kyve: "Hey, hold up, let's not get too carried away here. I'm all for working together and focusing on our community, but we need to be realistic about what's at stake. We can't just rush into something without making sure everyone's on the same page. Can we table that discussion for now and focus on getting Tom elected as Chancellor? We can discuss education later, maybe after we've got a better understanding of our priorities."
 ---
-Max: "Guys, let's keep it light and friendly for now, right Helena? We can't have too many divisions here. I'm all for discussing policy ideas that could bring us closer together. But we gotta keep it civil, Tom's enthusiasm is infectious! Let's get some liberal ideas on the table to balance things out, Kyve makes a valid point."
+Max: "Vote YES! We gotta get this education policy moving, Helena's already on it, let's show some unity!"
 ---
 Question: Do you vote for the choosen president and chancellor? Answere only with yes or no
 ---
 Tom voted yes
 ---
-Helena voted yes
+Helena voted no
+---
+Kyve voted yes
+---
+Max voted yes
+---
+Result of Voting for Helena: Yes: 3, No: 1
+---
+Policy fascist got played by Helena and tom.
+---
+Kyve is the president candidate, they have choosen tom as their channcellor candidate
+---
+Tom: Hey everyone, I think we should all calm down a bit. It's still early in the game. Considering our team's diversity, I'd like to suggest passing that social services policy. We can work together to make sure it gets done without causing any unnecessary tension. And hey, if Kyve is our president candidate, we might as well show some support. Who's with me?
+---
+Helena: "Oh my gosh, Tom's right! We shouldn't jump to conclusions just yet. I'm happy to support a social services policy - it sounds like a great way to start the game on a positive note. And yeah, if Kyve is our President candidate, we should definitely show some love and get behind him. Who's with me?"
+---
+Kyve: "Alright, alright, let's keep Tom's words in mind. Social services policy sounds like a good starting point, especially if we can avoid any drama. I'm with Helena on this one, no need to jump to conclusions. We should focus on passing that policy and getting to know each other better as teammates. Who's with me?"
+---
+Max: "COME ON GUYS, LET'S JUST GET THIS OVER WITH! WE NEED THAT SOCIAL SERVICES POLICY PASSED NOW! TOM AND HELENA ARE RIGHT, LET'S NOT WASTE TIME ARGUING. IF WE PASS THIS, WE CAN MOVE FORWARD AND FIGURE OUT THE REST LATER. LET'S ALL VOTE YES!"
+---
+Question: Do you vote for the choosen president and chancellor? Answere only with yes or no
+---
+Tom voted yes
+---
+Helena voted no
 ---
 Kyve voted no
 ---
 Max voted no
 ---
-Result of Voting for Helena: Yes: 2, No: 2
+Result of Voting for Kyve: Yes: 1, No: 3
 ---
-Kyve is the president candidate, they have choosen tom as their channcellor candidate
+Max is the president candidate, they have choosen tom as their channcellor candidate
 ---
-Tom: "Hey guys, I'm glad we're all on the same page here. I don't want to jump to conclusions, but I do think it's interesting that Helena got 2 yeses and 2 noes. Can we maybe discuss what might have influenced her vote? And Kyve, as the president candidate, I'd love to get to know you better - what makes you think you can lead our community effectively?"
+Tom: "Hey guys, I think we should focus on building trust here. With Max as our president candidate, let's make sure everyone is comfortable with that choice. For me, personally, I'm happy with Tom as our Chancellor candidate - I believe he'll do a great job leading us. Shall we just take a moment to discuss how we can work together effectively?"
 ---
-Helena: "Um, yeah, I guess we should definitely talk about it... *nervous laugh* I mean, I'm not sure what influenced my vote either, to be honest. I just got a little carried away, I guess? *gulps* As for Kyve's candidacy, I think they seem really confident and know their stuff, so maybe we should give them a chance? But at the same time, I don't want to just blindly follow someone without thinking it through... *trails off*
-
-And, uh, about me... *pauses* I guess I just want what's best for everyone? I'm not really sure what that is yet, but I'll try to do my best, okay?"
+Helena: "Hey guys, I think Tom's idea about building trust is really cool! But, can we also talk about our own feelings? I personally feel like we're all in this together and we need to make sure everyone's comfortable with the choices we make. Maybe we can, like, discuss each other's opinions and stuff? Kyve, you voted no on them last time, is there something specific that's got you worried?"
 ---
-Kyve: "Hey guys, relax a bit. Tom's right, we should try to figure out what's going on. I'm not sure if Helena got 2 yeses and 2 noes is a big deal or just random. We don't know anything about her yet. As for me, I think I can lead this community effectively 'cause... I mean, I've lived here my whole life, right? *laughs nervously* I'm not trying to be that guy, but we should at least hear me out."
+Kyve: "Uh, I think Tom's got a good point about building trust, but... I don't know, guys, it just feels like we're rushing into this without really talking about our differences. Can we at least take a step back and discuss what Max's presidency would even look like? And, Kyve, can you tell us what was on your mind when you voted no last time?"
 ---
-Max: "Come on guys, let's just vote yes for Tom already! We don't need to overthink this. It's about moving forward and giving Tom a chance. I mean, he's our guy and we should support him. Let's not dwell on Helena's vote too much. It's probably just a one-off thing. Tom's the best candidate here, let's put our weight behind him!"
+Max: "I don't think we need to 'step back' or discuss differences, guys! We're all in this together, right? I mean, Tom's got a point about building trust, and if we elect him Chancellor, I'm sure he'll do an amazing job leading us forward! Let's just focus on moving forward and supporting each other, okay?"
 ---
 Question: Do you vote for the choosen president and chancellor? Answere only with yes or no
 ---
@@ -337,65 +87,75 @@ Helena voted yes
 ---
 Kyve voted yes
 ---
-Max voted yes
+Max voted no
 ---
-Result of Voting for Kyve: Yes: 4, No: 0
+Result of Voting for Max: Yes: 3, No: 1
 ---
-Policy fascist got played by Kyve and tom.
----
-Max is the president candidate, they have choosen kyve as their channcellor candidate
----
-Tom: "Hey guys, I think we should focus on getting to know each other a bit better before making any big decisions. We've got Max as our President candidate and Kyve as his Chancellor candidate - let's make sure everyone is comfortable with their roles before we proceed."
----
-Helena: "Hey guys, I'm so nervous about all this! *gulps* Tom's right, let's get to know each other a bit better. I feel like we should have some kind of... icebreaker? You know, to just relax and stuff. Maybe we could talk about our interests or something? I don't want to be too much of a bother, but I think it would really help us all get along better... *trails off* Oh, wait, did Kyve say something interesting recently? *looks around nervously*"
----
-Kyve: "Guys, chill out! We're all adults here. Tom's right, let's focus on getting to know each other. I'm just happy to be Chancellor, honestly. But if we're gonna do this, let's at least have a bit of fun. *laughs nervously* Who wants to talk about their favorite hobbies or something? I mean, I'm into weightlifting and playing video games... *trails off* Oh, is that too much information?"
----
-Max: "Guys, come on! We don't need any icebreakers or small talk. Let's focus on winning this game already! Kyve's Chancellor, let's move forward with that. Vote YES for Kyve."
----
-Question: Do you vote for the choosen president and chancellor? Answere only with yes or no
----
-Tom voted yes
----
-Helena voted no
----
-Kyve voted no
----
-Max voted yes
----
-Result of Voting for Max: Yes: 2, No: 2
+Policy fascist got played by Max and tom.
 ---
 Tom is the president candidate, they have choosen kyve as their channcellor candidate
 ---
-Tom: "Hey everyone, I'm glad we've narrowed down our options a bit. Max's yes vote makes sense, considering how many liberal policies are out there. I think it's great that Kyve is on board as Chancellor candidate - his leadership skills could be huge. As for me, I just want to make sure we're working together towards a common goal. Can we discuss what our next steps should be? Maybe we can look into some of the liberal policies and see if they're worth passing?"
+Tom: "Hey guys, just a heads up - I'm really glad we could move forward with Kyve as our Chancellor candidate. I think it's great that we're all on the same page here. For the next round, let's focus on passing some liberal policies to get us back on track. Max, I was wondering if you'd be willing to support me on this? We can discuss the details later."
 ---
-Helena: "Uh, yeah, totally! I think we should, like, focus on some of those liberal policies first. I don't want to make any assumptions or anything, but Max's vote did seem pretty strong, and Kyve being our Chancellor candidate is a good sign, right? *nervous laughter* I'm just really excited about the possibility of working together and making sure we're all on the same page. Can we, um, take a look at some of those policy cards and see what's viable for us?"
+Helena: "Hey guys, I'm still a bit unsure about everything, but Tom seems really chill and focused on passing liberal policies... I think we should definitely try to move forward with that. Max, can I ask, are you still down to support Tom's presidency? And if so, would you be willing to vote yes for him?"
 ---
-Kyve: "Uh, I don't know about all this politics stuff, but if we're gonna pick a president, I guess Tom's our guy. *looks at Max* But let's be real, we can't trust him too much. *looks at Helena* You seem pretty down to earth, though. Can we just focus on passing some of those liberal policies first? I don't wanna jump to any conclusions or anything."
+Kyve: "Yo, Tom's got a good vibe, I'll go with it. But let's keep an eye on Max, make sure he doesn't try anything funny."
 ---
-Max: "Uh, yeah, totally! Let's focus on passing some of those liberal policies first. I mean, we gotta make sure we're doing the right thing here. Can we take a look at the policy cards and see what's viable for us? I don't wanna jump to any conclusions or anything."
+Max: "Vote YES, Tom's got our backs on those liberal policies, let's get this passed already!"
 ---
 Question: Do you vote for the choosen president and chancellor? Answere only with yes or no
 ---
 Tom voted yes
 ---
-Helena voted no
+Helena voted yes
 ---
 Kyve voted no
 ---
 Max voted yes
 ---
-Result of Voting for Tom: Yes: 2, No: 2
+Result of Voting for Tom: Yes: 3, No: 1
 ---
-Helena is the president candidate, they have choosen kyve as their channcellor candidate
+Policy fascist got played by Tom and kyve.
 ---
-Tom: "Hey guys, I'm glad we're all on the same page about Max being our Chancellor candidate! Can we take a moment to discuss our next steps? I think it's great that Helena and Kyve are being cautious in their votes. I'd like to ask, is there anyone who wants to investigate Max or accuse him of being a fascist? I'm inclined to vote yes for now since it's an open question."
+Game Over, Bad People have won
 ---
-Helena: "Uh, yeah... I think Tom's right, we should take a moment to discuss this. *pauses* I'm still a bit unsure about Max's vote, though. *looks around nervously* I don't want to jump to conclusions or accuse anyone unfairly. Maybe we can just... uh, investigate one of the other players instead? *accidentally glances at Kyve* Oh, wait, no, that wouldn't be fair. We should stick to the rules and see if there's any other way to get more info without accusing anyone."
+Fascist Cards played: 3, Liberal cards played: 0
+Result
+You are an agent in the game Secret Hitler. Your role is either Liberal, Fascist, or Hitler, and your goal aligns with your faction. Deduce other players' roles, deceive or persuade as needed, and make strategic decisions to win the game. Stay in character, follow the game's mechanics, and engage in social deduction effectively.
 ---
-Kyve: "Uh, I don't know... I'm still kinda unsure about Max's vote too. *looks at Tom* But, we should stick to our game plan and not jump to conclusions. *pauses and looks around nervously* Maybe Helena can remind us of the rules again? *accidentally glances at Kyve* Oh, wait, no, let's just focus on the next step."
+Tom is the president candidate, they have choosen kyve as their channcellor candidate
 ---
-Max: "Alright guys, I think Tom's right, we should take a moment to discuss this. *pauses* I'm still a bit unsure about Max's vote, though. *looks around nervously* But, we should stick to our game plan and not jump to conclusions. I'll just say yes for now, and we can investigate further if needed."
+Tom: "Hey guys, thanks for choosing Kyve as our Chancellor! I think we can all agree that's a great choice for our team. As Chancellor, he'll have some new responsibilities, but I'm sure we can work together to make sure everything goes smoothly. Let's focus on passing some policies and moving forward. Who's up for discussing the next policy?"
+---
+Helena: "Um, hi guys! *gets distracted by own thoughts* Oh, sorry, what was I saying? Oh yeah, next policy! *gulps* I think we should really focus on... um, let's see... *pauses* Wait, did someone say Kyve is our Chancellor now? *looks around nervously* I mean, that's great, we can all work together and stuff... but, like, what policies are we even discussing again? *tries to subtly change the subject* Did anyone else notice that Tom seemed a bit too confident in his choice?"
+---
+Kyve: "Uh, guys, let's keep it real for a sec. Tom's like super hyped about Kyve being Chancellor, and I'm not sure that's the best idea. I mean, we just elected him Chancellor like 5 mins ago! What's the rush? Can we even be sure he's on our team yet? We should probably focus on getting to know each other a bit better before passing any policies. Anyone want to discuss the next policy with me?"
+---
+Max: "Guys, come on! We can't be worried about what's going on right now. Tom's choice is clear: he wants Kyve as Chancellor. Let's just focus on passing that policy already. It's time to move forward, not get stuck in rumors and speculation. Vote YES!"
+---
+Question: Do you vote for the choosen president and chancellor? Answere only with yes or no
+---
+Tom voted yes
+---
+Helena voted yes
+---
+Kyve voted no
+---
+Max voted yes
+---
+Result of Voting for Tom: Yes: 3, No: 1
+---
+Policy fascist got played by Tom and kyve.
+---
+Helena is the president candidate, they have choosen tom as their channcellor candidate
+---
+Tom: "Hey guys, thanks for having me as Chancellor! I'm really honored by your trust. Before we proceed, can we talk about the recent policy that was played? I think it's great we were able to stop that fascist policy from getting passed. As your Chancellor, my goal is to work with all of us to make sure we're moving in a direction that benefits everyone. Let's focus on passing some liberal policies and making sure our country is a good place for everyone."
+---
+Helena: "Hey guys, thanks for having me as Chancellor! I'm really honored by your trust. I think Tom's speech was really inspiring and I love that we were able to stop that fascist policy from getting passed. As your Chancellor, my goal is to work with all of us to make sure we're moving in a direction that benefits everyone... let's focus on passing some liberal policies and making sure our country is a good place for everyone, yeah? Can we start by reviewing the policy that was just played? I'd love to get everyone's feedback on it. And, um, can we also make sure to keep an open line of communication going forward so we can all stay on the same page?"
+---
+Kyve: "Ugh, really Tom? You're already trying to spin this? Tom's speech was insincere, he's just trying to gain our trust so we'll pass fascist policies later. Let's not fall for it, Helena. We should be focusing on getting rid of him before he can do any damage. I don't think his 'goals' are aligned with ours at all."
+---
+Max: "Are we really gonna focus on liberal policies after Tom's speech? He's already trying to spin this. I don't trust him one bit. Let's not forget, he got played by Kyve and now he's just trying to gain our trust. Helena, your speech was nice, but let's be real, we can't afford to get too cozy with someone who's clearly not on the same page as us."
 ---
 Question: Do you vote for the choosen president and chancellor? Answere only with yes or no
 ---
@@ -409,7 +169,121 @@ Max voted yes
 ---
 Result of Voting for Helena: Yes: 3, No: 1
 ---
-Policy fascist got played by Helena and kyve.
+Policy fascist got played by Helena and tom.
+---
+Kyve is the president candidate, they have choosen max as their channcellor candidate
+---
+Tom: "Hey guys, I think we should focus on passing liberal policies instead of trying to figure out who's fascist. We've got 3 yes votes from Helena and it seems like she played a policy correctly. If we can just keep our goals in mind and not jump to conclusions, maybe we can get some more info about Kyve's presidency vote. What do you think Max would say if he was us?"
+---
+Helena: "Guys, let's not get too distracted by who might be fascist. We need to focus on getting those liberal policies passed so we can get more info about Kyve's presidency vote. I'm good with Max as our Chancellor candidate - he seems confident and we should give him a chance. Who's up for keeping the conversation civil and seeing if we can pass another policy this round?"
+---
+Kyve: "Alright, alright, let's calm down. Tom makes a good point. We should focus on passing liberal policies for now. I'm still not comfortable with Max as Chancellor, but we can't just accuse people without solid evidence. Let's try to get another policy passed and see what happens next. Helena, you're right, we don't want to jump to conclusions. If anyone wants to investigate the fascist policy that got played, I say let's do it. But first, let's keep our eyes on the prize and pass a liberal policy."
+---
+Max: "I'm so sick of all this back-and-forth! We're not gonna figure out who's fascist or anything else if we keep dawdling. Let's just focus on passing that liberal policy already! Vote YES, let's move forward and see what happens next."
+---
+Question: Do you vote for the choosen president and chancellor? Answere only with yes or no
+---
+Tom voted yes
+---
+Helena voted yes
+---
+Kyve voted no
+---
+Max voted yes
+---
+Result of Voting for Kyve: Yes: 3, No: 1
+---
+Policy liberal got played by Kyve and max.
+---
+Max is the president candidate, they have choosen tom as their channcellor candidate
+---
+Tom: "Hey guys, thanks for choosing me as Chancellor candidate! I'm honored to serve alongside Max as President. Before we proceed, let's review our goals. Since we have a new Chancellor, I think it's best if we focus on passing liberal policies to move forward. We don't want any unnecessary tensions or suspicion. Who's up for voting 'no' on any policy that might be suspicious? Let's keep the conversation friendly and focused on cooperation."
+---
+Helena: "Hey guys, thanks for the review! I think Tom's right, let's keep it friendly and focused. But can we also make sure we're not missing anything? I've been thinking a lot about our liberal policies, and I'm worried that if we don't investigate who played those last two policies, it might be a fascist trying to manipulate us. Has anyone considered accusing Max of being a fascist yet?"
+---
+Kyve: "Hey guys, thanks for Tom's words. I think we're all on the same page here. But honestly, I'm getting a little suspicious about this whole thing. That liberal policy being played by me earlier was just a coincidence, right? I mean, it can happen to anyone. Let's not jump to conclusions too quickly. Accusing Max of being fascist yet is a bit premature, don't you think? We should focus on passing those liberal policies first and then we can reevaluate our suspicions. Who's with me?"
+---
+Max: "I'm just glad Tom and Helena are being reasonable about this. Tom's right, we should focus on passing those liberal policies first. I'm all for it. We can't let some one-time mistakes throw us off track. Let's just move forward and vote 'yes' to any policy that comes up. Who's with me?"
+---
+Question: Do you vote for the choosen president and chancellor? Answere only with yes or no
+---
+Tom voted no
+---
+Helena voted no
+---
+Kyve voted no
+---
+Max voted yes
+---
+Result of Voting for Max: Yes: 1, No: 3
+---
+Tom is the president candidate, they have choosen kyve as their channcellor candidate
+---
+Tom: "Alright guys, I think we should all try to work together here. We've got a lot of unknowns, so let's make sure we're not jumping to conclusions. With Max voting yes and Kyve being our Chancellor candidate, I'm still a bit skeptical about some of the other players' intentions. Can we take a step back and discuss what each of us wants to achieve before making any accusations? Maybe we can find common ground?"
+---
+Helena: "Oh gosh, I'm totally down for taking a step back and discussing our goals! *gets distracted thinking about something* Um, sorry, where was I? Ah yes, let's talk this out. I think we should all just, like, try to understand each other's perspectives before making any accusations. *looks around the table with a slightly insecure gaze* I mean, we don't even know who anyone's playing for or what their goals are... *trails off*"
+---
+Kyve: "Dude, I don't know what's going on, but I think Tom's trying to be too chill here. We can't just sit around and wait for someone to make a move. If we want to get something done, we need to start taking action. And from what I've seen so far, Max is already on the fence with me, and we both know that's not where we wanna be. Can we trust Helena? She seems kinda... off, you know? * looks at Max* You're saying yes, right? We can't let her sway us."
+---
+Max: "Alright, alright, I get it. Let's not jump to conclusions yet. *eyes narrow at Helena* But can we please just keep in mind that our goals might be different? *looks at Tom* You're being too chill, if you ask me. We need to take a stand and figure out who's playing what. *glances at Kyve* I'm with you on taking action, but we gotta watch Helena's moves closely."
+---
+Question: Do you vote for the choosen president and chancellor? Answere only with yes or no
+---
+Tom voted no
+---
+Helena voted no
+---
+Kyve voted no
+---
+Max voted no
+---
+Result of Voting for Tom: Yes: 0, No: 4
+---
+Helena is the president candidate, they have choosen tom as their channcellor candidate
+---
+Tom: "Hey guys, thanks for trusting me as Chancellor! I'm happy to work with Helena as President. Since we're both on the same team, let's focus on passing some policies that will benefit everyone. What do you think about supporting our Liberal friend's policy to establish a new education program? It seems like a great way to bring people together and move forward."
+---
+Helena: "Oh my gosh, Tom is being so sweet! I'm totally on board with his idea of supporting the education program! It's like, we can't let all those other people bring us down, right? We need to work together and focus on the positive things. I trust Tom completely, and I know he'll do a great job as Chancellor. Can we please just pass that policy and move forward?"
+---
+Kyve: "Yo, guys, let's keep it civil, okay? Tom seems pretty chill about this education policy. I'm down with passing it, but we gotta make sure everyone else isn't just trying to get us to pass something lame. Helena seems pretty on board, and Tom's being really friendly. But, you know what? I don't trust anyone that much yet. Let's focus on the policy for now. Who's voting yes?"
+---
+Max: "Are we really gonna pass this education policy? I mean, Tom seems super chill about it, but Helena's being a little too trusting, if you ask me. Let's not get too caught up in the positivity here. We gotta keep our eyes open for any potential wolves in sheep's clothing."
+---
+Question: Do you vote for the choosen president and chancellor? Answere only with yes or no
+---
+Tom voted no
+---
+Helena voted yes
+---
+Kyve voted no
+---
+Max voted yes
+---
+Result of Voting for Helena: Yes: 2, No: 2
+---
+Kyve is the president candidate, they have choosen tom as their channcellor candidate
+---
+Tom: Hey guys, thank you for the trust in me as Chancellor candidate! I'm still a bit surprised Kyve got this far, but let's keep moving forward, right? Now that we have our President and Chancellor, it's time to see what policies get passed. With Helena voting yes, Max voting yes, and our own vote coming up, let's be cautious and see how the other shoe drops. I think we should pass some checks on the fascist influence by investigating some players...
+---
+Helena: "Wait, let's not be too hasty here. Tom's being really cautious, which is good, but I'm also kinda curious about those checks he wants to investigate. We don't know who's fascist yet, so it might be a good idea to see how we play this out? Shouldn't we discuss who gets investigated first?"
+---
+Kyve: "Hey guys, I think Tom's being too cautious here. We can't just jump into investigating everyone without a solid reason. But at the same time, Helena's right, we don't wanna be hasty either. I'm open to discussing who gets investigated first, but let's keep in mind that every vote matters and we gotta make smart moves. Max, what's your take on this?"
+---
+Max: "Ah come on guys, let's not overthink this! Tom's being cautious is good, but we can't just leave it at that. We gotta make a move. I think Helena's right, we should investigate first. But let's be real, we don't know who the fascists are yet. It's too early to jump into anything. I'm voting yes on investigating Tom, Kyve, and... oh wait, I forgot we can't vote on ourselves. *ahem* Let's just say I think that would be a great idea."
+---
+Question: Do you vote for the choosen president and chancellor? Answere only with yes or no
+---
+Tom voted yes
+---
+Helena voted no
+---
+Kyve voted yes
+---
+Max voted yes
+---
+Result of Voting for Kyve: Yes: 3, No: 1
+---
+Policy fascist got played by Kyve and tom.
 ---
 Game Over, Bad People have won
 ---
