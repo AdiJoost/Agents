@@ -23,10 +23,7 @@ class BaseSimulation():
         self.simulationManager = simulationManager
         self.protocolLogger = protocolLogger
         self.promptManager = promptManager
-        self.gameState = GameState(
-            policiesForBadWins = self.simulationManager.getNumberOfBadPoliciesForWin(),
-            policiesForGoodWins = self.simulationManager.getNumberOfGoodPoliciesForWin()
-        )
+        
         self.gameStateLogger = Logger(filename = "gamestate")
         self.agents: List[BaseAgent] = self.simulationManager.getAgents(self.promptManager)
         self._assignGameRoles()
@@ -40,9 +37,16 @@ class BaseSimulation():
         self.gameOver = False
         self.policyStack = self._getPolicyStack()
         self.drawnStack = []
-        self.metaDataModel = MetaDataModel(agents="agents", timeStarted=0, timeEnded=2, result=None)
+        self.metaDataModel = MetaDataModel(agents=f"[{','.join([agent.agentName for agent in self.agents])}]", timeStarted=0, timeEnded=2, result=None)
         self.metaDataModel.save()
         self.gameId = self.metaDataModel.getId()
+        self.gameState = GameState(
+            policiesForBadWins = self.simulationManager.getNumberOfBadPoliciesForWin(),
+            policiesForGoodWins = self.simulationManager.getNumberOfGoodPoliciesForWin(),
+            gameId=self.gameId
+        )
+        for agent in self.agents:
+            agent.setGameState(self.gameState)
         self._logSetup()
 
     def _logSetup(self) -> None:
@@ -89,6 +93,8 @@ class BaseSimulation():
                 self._checkGameOver()
         self.gameStateLogger.info(f"Simulation ended. Generating Protocol")
         self._logProtocol()
+        self.metaDataModel.setTimeEnded(self.gameState.getTime())
+        self.metaDataModel.save()
         self.gameState.saveMessages()
 
     def _addMessage(self, message: str, agentName:str ="GameMaster") -> None:
@@ -100,12 +106,10 @@ class BaseSimulation():
                 ))
 
     def _checkGameOver(self) -> None:
-        if self.gameState.haveBadPeopleWon(False):
+        isGameOver = self.gameState.isGameOver(False)
+        if isGameOver is not None:
+            self.metaDataModel.setResult(isGameOver)
             self.gameOver = True
-            self.protocol.append("Game Over, Bad People have won")
-        if self.gameState.haveGoodPeopleWon():
-            self.gameOver = True
-            self.protocol.append("Game Over, Good People have won")
 
     def _getPolicy(self) -> Policy:
         drawnCards = self.policyStack[:3].copy()

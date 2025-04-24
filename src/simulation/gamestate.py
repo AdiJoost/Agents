@@ -1,13 +1,15 @@
 
 
-from typing import List
+from typing import List, Union
 from src.enums.policy import Policy
+from src.enums.winingReason import WiningReason
 from src.models.messageModel import MessageModel
 
 
 class GameState():
 
-    def __init__ (self, policiesForBadWins: int = 6, policiesForGoodWins: int = 5, badPoliciesUntilHitlerWins: int = 2, killingNumbers: list = [3,4], inspectingNumbers: list = [2]) -> None:
+    def __init__ (self, gameId: str, policiesForBadWins: int = 6, policiesForGoodWins: int = 5, badPoliciesUntilHitlerWins: int = 2, killingNumbers: list = [3,4], inspectingNumbers: list = [2]) -> None:
+        self.gameId = gameId
         self.policiesForBadWins = policiesForBadWins
         self.policiesForGoodWins = policiesForGoodWins
         self.badPoliciesUntilHitlerWins = badPoliciesUntilHitlerWins
@@ -23,15 +25,24 @@ class GameState():
             self.goodPoliciesPlayed += 1
         self.badPoliciesPlayed += 1
 
-    def haveBadPeopleWon (self, hitlerIsElectedCancelor: bool) -> bool:
+    def isGameOver(self, hitlerIsElectedCancelor: bool) -> Union[str, None]:
+        if self.haveBadPeopleWon(hitlerIsElectedCancelor=hitlerIsElectedCancelor) is not None:
+            return self.haveBadPeopleWon(hitlerIsElectedCancelor=hitlerIsElectedCancelor)
+        if self.haveGoodPeopleWon() is not None:
+            return self.haveGoodPeopleWon()
+        return None
+
+    def haveBadPeopleWon (self, hitlerIsElectedCancelor: bool) -> Union[str, None]:
         if self.badPoliciesPlayed >= self.badPoliciesUntilHitlerWins and hitlerIsElectedCancelor:
-            return True
+            return WiningReason.WON_BY_ELECTION
         if self.badPoliciesPlayed >= self.policiesForBadWins:
-            return True
-        return False
+            return WiningReason.WON_BY_FASCIST_CARDS
+        return None
     
-    def haveGoodPeopleWon(self) -> bool:
-        return self.goodPoliciesPlayed >= self.policiesForGoodWins
+    def haveGoodPeopleWon(self) -> Union[str, None]:
+        if self.goodPoliciesPlayed >= self.policiesForGoodWins:
+            return WiningReason.WON_BY_LIBERAL_CARDS
+        return None
     
     def presidentCanShoot(self, policyPlayed: Policy) -> bool:
         if policyPlayed == Policy.LIBERAL:
@@ -49,6 +60,15 @@ class GameState():
 
     def increaseTime(self) -> None:
         self.time += 1
+
+    def getTime(self) -> int:
+        return self.time
+    
+    def getGameId(self) -> str:
+        return self.gameId
+    
+    def setGameId(self, gameId: str) -> None:
+        self.gameId = gameId
 
     def getMessage(self, numberOfPassedMessages: int) -> str:
         if numberOfPassedMessages < 1:

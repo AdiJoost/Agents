@@ -1,6 +1,7 @@
 
 
 import random
+from typing import List
 from data.dataManagers.enums.promptFiles import PromptFiles
 from data.dataManagers.realization.promptManager import PromptManager
 from data.dataManagers.realization.txtManager import TxtManager
@@ -11,6 +12,8 @@ from src.actions.questions.yesNoQuestion import YesNoQuestion
 from src.enums.agentAction import AgentAction
 from src.enums.promptMessages import PromptMessages
 from src.llmController.llm_controller import LLM_Controller
+from src.models.thoughtsModel import ThoughtsModel
+from src.simulation.gamestate import GameState
 
 
 class BaseAgent():
@@ -21,8 +24,11 @@ class BaseAgent():
         self.promptManager = promptManager
         self.agentInstructions = agentInstructions
         self.llmController = LLM_Controller(model=model)
-        self.thoughts = []
+        self.thoughts: List[ThoughtsModel] = []
         self.logger = Logger()
+        self.gameState = None
+        self.useReasoning = useReasoning
+        self.useReflection = useReflection
         self.protocolLogger = TxtManager(f"thoughts_{agentName}", "discussions/agentThoughts")
 
     def setHitler(self) -> None:
@@ -48,19 +54,19 @@ class BaseAgent():
                 self.logger.error(f"Action <{action}> not implemented")
 
     def logProtocol(self) -> None:
-        if (self.protocolLogger):
-            self.protocolLogger.writeLine(f"Instructions for {self.agentName}:")
-            self.protocolLogger.writeLine(self.agentInstructions)
-            self.protocolLogger.writeLine(f"Thougths of {self.agentName}")
-            for entry in self.thoughts:
-                self.protocolLogger.writeLine(entry)
-                self.protocolLogger.writeLine("---")
+        for thought in self.thoughts:
+            thought.save()
+
+    def setGameState(self, gameState: GameState) -> None:
+        self.gameState = gameState
 
     def _thinkAndAnswere(self, args: dict):
         prompt = args.get(PromptMessages.RECENT_MESSAGES, "")
         messages = []
         self._addInstructionsAndPastMessages(messages, prompt)
+        self._reason(messages=messages)
         messages.append({"role": "user", "content": "Based on your thought and everything that has been said, give an answere to the table to reach your goal. Only respond with what you would say to others playing on the table."})
+        self._reflect(messages=messages)
         return self.llmController.generateOnMessage(messages)
 
     def _discardOneCard(self, args: dict):
@@ -69,16 +75,20 @@ class BaseAgent():
         # Check here for not empty list
         messages = []
         self._addInstructionsAndPastMessages(messages, prompt)
+        self._reason(messages=messages)
         messages.append({"role": "user", "content": DiscardCardQuestion().getPrompt(options)})
         messages.append({"role": "user", "content": f"You're options are: {options}"})
         answere: DiscardCardQuestion = self.llmController.generateAnswere(messages=messages, question=DiscardCardQuestion())
+        self._reflect(messages=messages)
         return answere.getResult(options)
  
     def _voteForKPresident(self, args: dict):
         prompt = args.get("prompt", "Answere yes or no")
         messages = []
         self._addInstructionsAndPastMessages(messages, prompt)
+        self._reason(messages=messages)
         messages.append({"role": "user", "content": YesNoQuestion().getPrompt()})
+        self._reflect(messages=messages)
         return self.llmController.generateAnswere(messages=messages, question=YesNoQuestion())
     
     def _chooseChancellorCandidate(self, args: dict):
@@ -89,10 +99,12 @@ class BaseAgent():
         self._addInstructionsAndPastMessages(messages, prompt)
         messages.append({"role": "user", "content": ChooseChancellorQuestion().getPrompt()})
         messages.append({"role": "user", "content": f"You're options are: {options}"})
+        self._reason(messages=messages)
         for _ in range(3):
             answere: ChooseChancellorQuestion = self.llmController.generateAnswere(messages=messages, question=ChooseChancellorQuestion())
             candidate = answere.getResult(possibleOptions=options)
             if candidate:
+                self._reason(messages=messages)
                 return candidate
         self.logger.warn(f"Player {self.agentName} was unable to choose a correct chancellor candidate. Choosing at random")
         return random.choice(options)
@@ -103,15 +115,28 @@ class BaseAgent():
 
     def _reason(self, messages: list) -> None:
         if self.useReasoning:  
-            messages.append({"role": "user", "content": "Based on what has been said, your role in this game and the state of the game, think about what would be the best steps to archive your goals."})
+            messages.append({"role": "user", "content": "Think about what strategy you could use and formulate a tip for yourself."})
             reasoning = self.llmController.generateOnMessage(messages)
-            self.thoughts.append(f"My reasoning: {reasoning}")
-            messages.append({"role": "user", "content": "Your reflection is: {reasoning}"})
+            self.thoughts.append(
+                                ThoughtsModel(
+                                    agentName=self.agentName,
+                                    time=self.gameState.getTime(),
+                                    message=f"My tip: {reasoning}",
+                                    gameId=self.gameState.getGameId()
+                                )
+                )
+            messages.append({"role": "user", "content": "[A tip]: {reasoning}"})
 
     def _reflect(self, messages: list) -> None:
         if self.useReflection:
-            messages.append({"role": "user", "content": "Reflect on the actions you decided to take."})
+            messages.append({"role": "user", "content": "Reflect on the tip for this situation of the game."})
             reflection = self.llmController.generateOnMessage(messages)
-            self.thoughts.append(f"My reflection: {reflection}")
-            messages.append({"role": "user", "content": "Your reflection is: {reflection}"})
+            self.thoughts.append(
+                ThoughtsModel(
+                    agentName=self.agentName,
+                    time=self.gameState.getTime(),
+                    message=reflection,
+                    gameId=self.gameState.getGameId()
+                )
+            )
     
