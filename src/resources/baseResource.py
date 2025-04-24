@@ -53,6 +53,14 @@ class BaseResource(Resource):
         returnValue = [item.toJson() for item in result]
         return createResponse(returnValue, 200)
     
+    def handleGetManyWithFilter(self, modelClass: Type[BaseModel], query: dict) -> Response:
+        try:
+            offset, limit = self._getOffsetAndLimit()
+        except ValueError:
+            return createResponse("Invalid pagination values.", 400)
+        result: list= modelClass.getManyWithCondition(limit=limit, offset=offset, filterDict=query)
+        returnValue = [item.toJson() for item in result]
+        return createResponse(returnValue, 200)
     
     def _getOffsetAndLimit(self) -> tuple:
         offset = request.args.get(PaginationOption.OFFSET.value)

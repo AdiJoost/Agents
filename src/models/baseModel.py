@@ -4,7 +4,7 @@ from bson import ObjectId
 from config.configFiles import ConfigFiles
 from config.configManager import getConfig
 from config.mongoDBConfig.mongoDbConfigFields import MongoDBConfigFields
-from src.database.database_utils import deleteDocument, getDocumentById, getDocuments, saveDocument
+from src.database.database_utils import deleteDocument, getDocumentById, getDocuments, getDocumentsWithFilter, saveDocument
 
 class BaseModel():
 
@@ -48,6 +48,13 @@ class BaseModel():
     @classmethod
     def getMany(cls, limit: int, offset: int) -> list:
         result: list = getDocuments(limit, offset, databaseName=cls.DATABASE_NAME, collectionName=cls.COLLECTION_NAME)
+        if result is None:
+            return None
+        return [cls(**item) for item in result]
+    
+    @classmethod
+    def getManyWithCondition(cls, limit: int, offset: int, filterDict: dict) -> list:
+        result: list = getDocumentsWithFilter(limit, offset, databaseName=cls.DATABASE_NAME, collectionName=cls.COLLECTION_NAME, filterDict=filterDict)
         if result is None:
             return None
         return [cls(**item) for item in result]

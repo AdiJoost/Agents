@@ -16,6 +16,11 @@ def getDocuments(limit: int, offset: int, databaseName:str, collectionName: str)
     collection = _getCollection(databaseName=databaseName, collectionName=collectionName)
     return list(collection.find().skip(offset).limit(limit))
 
+def getDocumentsWithFilter(limit: int, offset: int, databaseName:str, collectionName: str, filterDict: dict) -> list:
+    collection = _getCollection(databaseName=databaseName, collectionName=collectionName)
+    query = filterDict if filterDict is not None else {}
+    return list(collection.find(query).skip(offset).limit(limit))
+
 def getOnlyAutomaticRecipes(databaseName:str, collectionName: str, limit: int=20, offset: int=0) -> list:
     query = [
         {

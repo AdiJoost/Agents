@@ -43,6 +43,12 @@ paths:
           type: "integer"
           description: "Maximum number of items to return"
           example: 10
+        - name: "gameId"
+          in: "query"
+          required: false
+          type: "string"
+          description: "ObjectId of the game the messages belong to"
+          example: "60d5ec49f1a2c30f3c9b47a2"
       responses:
         200:
           description: "List of messages retrieved successfully"
@@ -90,6 +96,50 @@ paths:
       responses:
         200:
           description: "List of games retrieved successfully"
+        400:
+          description: "Invalid request"
+
+  /api/v1/thought:
+    get:
+        summary: "Get a thought by _id"
+        tags:
+          - "Thought"
+        parameters:
+          - name: "_id"
+            in: "query"
+            required: true
+            type: "string"
+            description: "Unique identifier in ObjectId format"
+            example: "60d5ec49f1a2c30f3c9b47a2"
+        responses:
+          200:
+            description: "Thought retrieved successfully"
+          400:
+            description: "Invalid request"
+          404:
+            description: "Thought not found"
+
+  /api/v1/thoughts:
+    get:
+      summary: "Get a list of thoughts with optional pagination"
+      tags:
+        - "Game"
+      parameters:
+        - name: "offset"
+          in: "query"
+          required: false
+          type: "integer"
+          description: "Number of items to skip"
+          example: 0
+        - name: "limit"
+          in: "query"
+          required: false
+          type: "integer"
+          description: "Maximum number of items to return"
+          example: 10
+      responses:
+        200:
+          description: "List of thoughts retrieved successfully"
         400:
           description: "Invalid request"
   

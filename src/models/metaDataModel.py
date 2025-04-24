@@ -7,12 +7,12 @@ class MetaDataModel(BaseModel):
 
     COLLECTION_NAME = "meta_data_model"
 
-    def __init__(self, agents, timeStarted, timeEnded, resultId=1, _id = None) -> None:
+    def __init__(self, agents, timeStarted, timeEnded, result:str, _id = None) -> None:
         self._id = _id
         self.agents = agents
         self.timeStarted = timeStarted
         self.timeEnded = timeEnded
-        self.resultId = resultId
+        self.result = result
 
     def getAgents (self)->any:
         return self.agents
@@ -32,10 +32,17 @@ class MetaDataModel(BaseModel):
     def setTimeEnded(self, timeEnded) -> None:
         self.timeEnded = timeEnded
 
+    def getResult(self) -> str:
+        return self.result
+    
+    def setResult(self, result: str) -> None:
+        self.result = result 
+
     def toJson(self) -> dict:
         values = {
             "agents": self.agents,
             "timeStarted": self.timeStarted,
-            "timeEnded": self.timeEnded
+            "timeEnded": self.timeEnded,
+            "result": self.result
         }
         return self.addIdToJson(values)
