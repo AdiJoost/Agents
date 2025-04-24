@@ -51,7 +51,6 @@ class BaseModel():
         if result is None:
             return None
         return [cls(**item) for item in result]
-        
     
     @classmethod
     def delete(cls, objectId: ObjectId):

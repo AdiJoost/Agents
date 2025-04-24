@@ -36,7 +36,7 @@ class MessageModel(BaseModel):
             "agentName": self.agentName,
             "time": self.time,
             "message": self.message,
-            "gameId": self.gameId
+            "gameId": str(self.gameId)
         }
         return self.addIdToJson(values)
     

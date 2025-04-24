@@ -7,7 +7,7 @@ class MetaDataModel(BaseModel):
 
     COLLECTION_NAME = "meta_data_model"
 
-    def __init__(self, agents, timeStarted, timeEnded, resultId, _id = None) -> None:
+    def __init__(self, agents, timeStarted, timeEnded, resultId=1, _id = None) -> None:
         self._id = _id
         self.agents = agents
         self.timeStarted = timeStarted
