@@ -1,5 +1,6 @@
 #import ollama
 from ollama import Client, AsyncClient
+import ollama
 
 from log.logger import Logger
 from src.actions.questions.question import Question
@@ -10,16 +11,21 @@ class LLM_Controller():
     def __init__(self, model: str="mistral:7b",
                  role = None,
                  agent_prompt: str=None,
-                 host = "http://localhost:11434") -> None: 
+                 host = "http://ollama:11434") -> None: 
 
         self.model = model  # Modell für Ollama: https://ollama.com/library
         self.role = role    # Rolle: Liberal, Faschichst, Hitler
         self.agent_prompt = agent_prompt or f"Du agierst als Rolle {role} im Secret Hitler Spiel" # Persönlichkeit/Verhalten global steuern
         # Custom client: damit ich Ollama auf anderer Server (Docker) laufen lassen kann
+        self.host = host
         self.client = Client(host=host)
+        self.client.pull(model=model)
         # Async client: bessere Performance wenn viele Agenten parallel laufen
         self.async_client = AsyncClient(host=host)
         self.logger = Logger()
+
+    def toString(self) ->str:
+        return f"Model: {self.model}, role: {self.role}, host: {self.host}"
 
     def generateOnMessage(self, messages: list) -> str:
         # LLM wird angesprochen, Antwort als string Rückgabe
@@ -33,7 +39,8 @@ class LLM_Controller():
 
         # falls ollama nicht antwortet oder Fehler auftritt
         except Exception as e:
-            self.logger.error(f"Call to LLM <{self.model}> failed")
+            self.logger.error(e)
+            self.logger.error(f"Call to LLM <{self.model}> failed. Controller: <{self.toString()}>")
             return ""
         
     def generateAnswere(self, messages: list, question: Question) -> Question:
@@ -49,7 +56,8 @@ class LLM_Controller():
 
         # falls ollama nicht antwortet oder Fehler auftritt
         except Exception as e:
-            self.logger.error(f"Call to LLM <{self.model}> failed")
+            self.logger.error(e)
+            self.logger.error(f"Call to LLM <{self.model}> failed. Controller: <{self.toString()}>")
             return ""
 
     def generate(self, prompt: str) -> str:     # nimmt Prompt/Spielsituation entgegen

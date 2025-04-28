@@ -10,17 +10,37 @@ services:
     volumes:
       - mongo-data:/data/db
 
-#  bar_tender:
-#    image: bar_tender
-#    container_name: bar_tender-container
-#    restart: always
-#    depends_on:
-#      - mongodb
-#    env_file:
-#      - dockerEnvironmentVariables.env
-#    ports:
-#      - "6969:6969"
+  ollama:
+    image: ollama/ollama
+    container_name: ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama-data:/root/.ollama
+    restart: unless-stopped
+    privileged: true
+    environment:
+      - OLLAMA_MODELS=/root/.ollama/models
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
+
+
+  agent:
+    image: agent
+    container_name: agent-api
+    restart: always
+    depends_on:
+      - mongodb
+      - ollama
+    env_file:
+      - dockerEnvironmentVariables.env
+    ports:
+      - "5000:5000"
 
 volumes:
   mongo-data:
     driver: local
+  ollama-data:

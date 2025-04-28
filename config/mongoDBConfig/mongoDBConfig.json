@@ -1,5 +1,5 @@
 {
-"HOST": "localhost",
+"HOST": "mongodb",
 "PORT": "27017",
 "USERNAME": "root",
 "PASSWORD": "example",
