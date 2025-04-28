@@ -1,0 +1,7 @@
+{
+"HOST": "localhost",
+"PORT": "27017",
+"USERNAME": "root",
+"PASSWORD": "example",
+"DATABASE_NAME": "secret_hitler"
+}

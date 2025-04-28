@@ -2,5 +2,6 @@
     "applicationName": "example",
      "logLevel": "INFO",
      "chattyLevel": "INFO",
-     "overwriteMechanism":"APPEND"
+     "overwriteMechanism":"OVERWRITE",
+     "port": 5000
 }

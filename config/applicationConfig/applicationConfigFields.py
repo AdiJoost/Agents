@@ -5,3 +5,4 @@ class ApplicationConfigFields(Enum):
     LOG_LEVEL = "logLevel"
     CHATTY_LEVEL = "chattyLevel"
     OVERWRITE_MECHANISM = "overwriteMechanism"
+    PORT = "port"

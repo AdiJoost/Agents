@@ -1,0 +1,588 @@
+swagger: "2.0"
+info:
+  title: "Agents API"
+  description: "API for Secret Hitler game"
+  version: "1.0"
+
+paths:
+  /api/v1/message:
+    get:
+        summary: "Get a message by _id"
+        tags:
+          - "Message"
+        parameters:
+          - name: "_id"
+            in: "query"
+            required: true
+            type: "string"
+            description: "Unique identifier in ObjectId format"
+            example: "60d5ec49f1a2c30f3c9b47a2"
+        responses:
+          200:
+            description: "Message retrieved successfully"
+          400:
+            description: "Invalid request"
+          404:
+            description: "Message not found"
+
+  /api/v1/messages:
+    get:
+      summary: "Get a list of messages with optional pagination"
+      tags:
+        - "Message"
+      parameters:
+        - name: "offset"
+          in: "query"
+          required: false
+          type: "integer"
+          description: "Number of items to skip"
+          example: 0
+        - name: "limit"
+          in: "query"
+          required: false
+          type: "integer"
+          description: "Maximum number of items to return"
+          example: 10
+        - name: "gameId"
+          in: "query"
+          required: false
+          type: "string"
+          description: "ObjectId of the game the messages belong to"
+          example: "60d5ec49f1a2c30f3c9b47a2"
+      responses:
+        200:
+          description: "List of messages retrieved successfully"
+        400:
+          description: "Invalid request"
+
+  /api/v1/game:
+    get:
+        summary: "Get a meta data of a game by _id"
+        tags:
+          - "Game"
+        parameters:
+          - name: "_id"
+            in: "query"
+            required: true
+            type: "string"
+            description: "Unique identifier in ObjectId format"
+            example: "60d5ec49f1a2c30f3c9b47a2"
+        responses:
+          200:
+            description: "Game retrieved successfully"
+          400:
+            description: "Invalid request"
+          404:
+            description: "Game not found"
+
+  /api/v1/games:
+    get:
+      summary: "Get a list of metadata of a game with optional pagination"
+      tags:
+        - "Game"
+      parameters:
+        - name: "offset"
+          in: "query"
+          required: false
+          type: "integer"
+          description: "Number of items to skip"
+          example: 0
+        - name: "limit"
+          in: "query"
+          required: false
+          type: "integer"
+          description: "Maximum number of items to return"
+          example: 10
+      responses:
+        200:
+          description: "List of games retrieved successfully"
+        400:
+          description: "Invalid request"
+
+  /api/v1/thought:
+    get:
+        summary: "Get a thought by _id"
+        tags:
+          - "Thought"
+        parameters:
+          - name: "_id"
+            in: "query"
+            required: true
+            type: "string"
+            description: "Unique identifier in ObjectId format"
+            example: "60d5ec49f1a2c30f3c9b47a2"
+        responses:
+          200:
+            description: "Thought retrieved successfully"
+          400:
+            description: "Invalid request"
+          404:
+            description: "Thought not found"
+
+  /api/v1/thoughts:
+    get:
+      summary: "Get a list of thoughts with optional pagination"
+      tags:
+        - "Game"
+      parameters:
+        - name: "offset"
+          in: "query"
+          required: false
+          type: "integer"
+          description: "Number of items to skip"
+          example: 0
+        - name: "limit"
+          in: "query"
+          required: false
+          type: "integer"
+          description: "Maximum number of items to return"
+          example: 10
+      responses:
+        200:
+          description: "List of thoughts retrieved successfully"
+        400:
+          description: "Invalid request"
+  
+  /glas:
+    post:
+      summary: "Create a new glas"
+      tags:
+        - "Glas"
+      parameters:
+        - name: "body"
+          in: "body"
+          required: true
+          schema:
+            type: "object"
+            properties:
+              name:
+                type: "string"
+                description: "The name of the glas."
+              picture:
+                type: "string"
+                description: "URI to the picture of the glas"
+              volume:
+                type: "number"
+                format: "float"
+                description: "Volume in ml the glas can hold."
+            required:
+              - name
+              - picture
+              - volume
+      responses:
+        201:
+          description: "Glas created"
+        400:
+          description: "Invalid request"
+
+    put:
+        summary: "Update or create a glas. Be carefull, if a new glas is created, all fields, that are not in the body are set to null."
+        tags:
+          - "Glas"
+        parameters:
+          - name: "body"
+            in: "body"
+            required: true
+            schema:
+              type: "object"
+              properties:
+                _id:
+                  type: "string"
+                  description: "Unique identifier in ObjectId format"
+                  example: "60d5ec49f1a2c30f3c9b47a2"
+                name:
+                  type: "string"
+                  description: "The name of the glas."
+                picture:
+                  type: "string"
+                  description: "URI to the picture of the glas"
+                volume:
+                  type: "number"
+                  format: "float"
+                  description: "Volume in ml the glas can hold."
+              
+        responses:
+          200:
+            description: "Glas updated successfully"
+          201:
+            description: "Glas created"
+          400:
+            description: "Invalid request"
+
+    get:
+        summary: "Get a glas by _id"
+        tags:
+          - "Glas"
+        parameters:
+          - name: "_id"
+            in: "query"
+            required: true
+            type: "string"
+            description: "Unique identifier in ObjectId format"
+            example: "60d5ec49f1a2c30f3c9b47a2"
+        responses:
+          200:
+            description: "Glas retrieved successfully"
+          400:
+            description: "Invalid request"
+          404:
+            description: "Glas not found"
+
+    delete:
+      summary: "Delete a glas by _id. If the _id does not exist, it still returns a 200, as it does not exist."
+      tags:
+        - "Glas"
+      parameters:
+          - name: "_id"
+            in: "query"
+            required: true
+            type: "string"
+            description: "Unique identifier in ObjectId format"
+            example: "60d5ec49f1a2c30f3c9b47a2"
+      responses:
+        204:
+          description: "Pump deleted successfully"
+        400:
+          description: "Invalid request"
+
+  /glases:
+    get:
+      summary: "Get a list of glases with optional pagination"
+      tags:
+        - "Glas"
+      parameters:
+        - name: "offset"
+          in: "query"
+          required: false
+          type: "integer"
+          description: "Number of items to skip"
+          example: 0
+        - name: "limit"
+          in: "query"
+          required: false
+          type: "integer"
+          description: "Maximum number of items to return"
+          example: 10
+      responses:
+        200:
+          description: "List of glases retrieved successfully"
+        400:
+          description: "Invalid request"
+
+  /ingredient:
+    post:
+      summary: "Create a new ingredient"
+      tags:
+        - "Ingredient"
+      parameters:
+        - name: "body"
+          in: "body"
+          required: true
+          schema:
+            type: "object"
+            properties:
+              name:
+                type: "string"
+                description: "The name of the glas."
+              controller_type:
+                type: "string"
+                enum:
+                  - "pumpController"
+                  - "manualController"
+                description: "The type of controller the ingredients need."
+                example: "manualController"
+              picture:
+                type: "string"
+                description: "URI to the picture of the ingredient."
+              description:
+                type: "string"
+                description: "Short description of the ingredient."
+            required:
+              - name
+              - picture
+              - volume
+              - description
+      responses:
+        201:
+          description: "Ingredient created"
+        400:
+          description: "Invalid request"
+
+    put:
+        summary: "Update or create a Ingredient. Be carefull, if a new ingredient is created, all fields, that are not in the body are set to null."
+        tags:
+          - "Ingredient"
+        parameters:
+          - name: "body"
+            in: "body"
+            required: true
+            schema:
+              type: "object"
+              properties:
+                _id:
+                  type: "string"
+                  description: "Unique identifier in ObjectId format"
+                  example: "60d5ec49f1a2c30f3c9b47a2"
+                name:
+                  type: "string"
+                  description: "The name of the glas."
+                controller_type:
+                  type: "string"
+                  enum:
+                    - "pumpController"
+                    - "manualController"
+                  description: "The type of controller the ingredients need."
+                  example: "manualController"
+                picture:
+                  type: "string"
+                  description: "URI to the picture of the ingredient."
+                description:
+                  type: "string"
+                  description: "Short description of the ingredient."
+              
+        responses:
+          200:
+            description: "Ingredient updated successfully"
+          201:
+            description: "Ingredient created"
+          400:
+            description: "Invalid request"
+
+    get:
+        summary: "Get a Ingredient by _id"
+        tags:
+          - "Ingredient"
+        parameters:
+          - name: "_id"
+            in: "query"
+            required: true
+            type: "string"
+            description: "Unique identifier in ObjectId format"
+            example: "60d5ec49f1a2c30f3c9b47a2"
+        responses:
+          200:
+            description: "Ingredient retrieved successfully"
+          400:
+            description: "Invalid request"
+          404:
+            description: "Ingredient not found"
+
+    delete:
+      summary: "Delete a ingredient by _id. If the _id does not exist, it still returns a 200, as it does not exist."
+      tags:
+        - "Ingredient"
+      parameters:
+          - name: "_id"
+            in: "query"
+            required: true
+            type: "string"
+            description: "Unique identifier in ObjectId format"
+            example: "60d5ec49f1a2c30f3c9b47a2"
+      responses:
+        204:
+          description: "Ingredient deleted successfully"
+        400:
+          description: "Invalid request"
+
+  /ingredients:
+    get:
+      summary: "Get a list of ingredients with optional pagination"
+      tags:
+        - "Ingredient"
+      parameters:
+        - name: "offset"
+          in: "query"
+          required: false
+          type: "integer"
+          description: "Number of items to skip"
+          example: 0
+        - name: "limit"
+          in: "query"
+          required: false
+          type: "integer"
+          description: "Maximum number of items to return"
+          example: 10
+      responses:
+        200:
+          description: "List of ingredients retrieved successfully"
+        400:
+          description: "Invalid request"
+
+  /recipe:
+    post:
+      summary: "Create a new recipe"
+      tags:
+        - "Recipe"
+      parameters:
+        - name: "body"
+          in: "body"
+          required: true
+          schema:
+            type: "object"
+            properties:
+              name:
+                type: "string"
+                description: "The name of the recipe."
+              picture:
+                type: "string"
+                description: "URI to the picture of the recipe."
+              steps:
+                type: "array"
+                description: "A list of all steps in the recipe in chronological order."
+                items:
+                  type: "object"
+                  properties:
+                    ingredient:
+                      type: "string"
+                      description: "The name of the ingredient."
+                    controller_type:
+                      type: "string"
+                      description: "The type of controller the ingredient needs."
+                      enum:
+                        - "pumpController"
+                        - "manualController"
+                    picture:
+                      type: "string"
+                      description: "URI to the picture of the ingredient."
+                    description:
+                      type: "string"
+                      description: "Short description of the action done."
+                    amount:
+                      type: "string"
+                      description: "The amount of the ingredient needed. This is a string, as it could be a table spoon or a volume etc."
+                  required:
+                    - ingredient
+                    - controller_type
+                    - picture
+                    - description
+                    - amount
+
+              required:
+                - name
+                - picture
+                - steps
+      responses:
+        201:
+          description: "Recipe created"
+        400:
+          description: "Invalid request"
+
+    put:
+        summary: "Update or create a Ingredient. Be carefull, if a new ingredient is created, all fields, that are not in the body are set to null."
+        tags:
+          - "Recipe"
+        parameters:
+          - name: "body"
+            in: "body"
+            required: true
+            schema:
+              type: "object"
+              properties:
+                name:
+                  type: "string"
+                  description: "The name of the recipe."
+                picture:
+                  type: "string"
+                  description: "URI to the picture of the recipe."
+                steps:
+                  type: "array"
+                  description: "A list of all steps in the recipe in chronological order."
+                  items:
+                    type: "object"
+                    properties:
+                      ingredient:
+                        type: "string"
+                        description: "The name of the ingredient."
+                      controller_type:
+                        type: "string"
+                        description: "The type of controller the ingredient needs."
+                        enum:
+                          - "pumpController"
+                          - "manualController"
+                      picture:
+                        type: "string"
+                        description: "URI to the picture of the ingredient."
+                      description:
+                        type: "string"
+                        description: "Short description of the action done."
+                      amount:
+                        type: "string"
+                        description: "The amount of the ingredient needed. This is a string, as it could be a table spoon or a volume etc."
+                    required:
+                      - ingredient
+                      - controller_type
+                      - picture
+                      - description
+                      - amount
+        responses:
+          200:
+            description: "Recipe updated successfully"
+          201:
+            description: "Recipe created"
+          400:
+            description: "Invalid request"
+
+    get:
+        summary: "Get a recipe by _id"
+        tags:
+          - "Recipe"
+        parameters:
+          - name: "_id"
+            in: "query"
+            required: true
+            type: "string"
+            description: "Unique identifier in ObjectId format"
+            example: "60d5ec49f1a2c30f3c9b47a2"
+        responses:
+          200:
+            description: "Recipe retrieved successfully"
+          400:
+            description: "Invalid request"
+          404:
+            description: "Recipe not found"
+
+    delete:
+      summary: "Delete a recipe by _id. If the _id does not exist, it still returns a 200, as it does not exist."
+      tags:
+        - "Recipe"
+      parameters:
+          - name: "_id"
+            in: "query"
+            required: true
+            type: "string"
+            description: "Unique identifier in ObjectId format"
+            example: "60d5ec49f1a2c30f3c9b47a2"
+      responses:
+        204:
+          description: "Recipe deleted successfully"
+        400:
+          description: "Invalid request"
+
+  /recipes:
+    get:
+      summary: "Get a list of recipes with optional pagination"
+      tags:
+        - "Recipe"
+      parameters:
+        - name: "offset"
+          in: "query"
+          required: false
+          type: "integer"
+          description: "Number of items to skip"
+          example: 0
+        - name: "limit"
+          in: "query"
+          required: false
+          type: "integer"
+          description: "Maximum number of items to return"
+          example: 10
+        - name: "onyl_automatic_recipes"
+          in: "query"
+          required: false
+          type: "boolean"
+          description: "If true, only recipes are returned, that have no manuel steps in them."
+      responses:
+        200:
+          description: "List of recipes retrieved successfully"
+        400:
+          description: "Invalid request"

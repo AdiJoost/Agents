@@ -1,5 +1,8 @@
 #import ollama
 from ollama import Client, AsyncClient
+
+from log.logger import Logger
+from src.actions.questions.question import Question
 #import asyncio
 
 class LLM_Controller():
@@ -16,7 +19,38 @@ class LLM_Controller():
         self.client = Client(host=host)
         # Async client: bessere Performance wenn viele Agenten parallel laufen
         self.async_client = AsyncClient(host=host)
+        self.logger = Logger()
 
+    def generateOnMessage(self, messages: list) -> str:
+        # LLM wird angesprochen, Antwort als string Rückgabe
+        try:
+            response = self.client.chat(        # ruft ollama synchron auf mit:
+                model=self.model,               # - Modell &
+                messages=messages               # - alle bisher gesammelten Nachrichten
+            )
+            answer = response['message']['content'].strip()     # strip entfernt unnötige Leerzeichen/Umbrüche/Tabs am Anfang/Ende
+            return answer
+
+        # falls ollama nicht antwortet oder Fehler auftritt
+        except Exception as e:
+            self.logger.error(f"Call to LLM <{self.model}> failed")
+            return ""
+        
+    def generateAnswere(self, messages: list, question: Question) -> Question:
+         # LLM wird angesprochen, Antwort als string Rückgabe
+        try:
+            response = self.client.chat(        # ruft ollama synchron auf mit:
+                model=self.model,               # - Modell &
+                messages=messages,
+                format=question.getAnswereSchema().model_json_schema(),               # - alle bisher gesammelten Nachrichten
+            )
+            question.setResult(response)     # strip entfernt unnötige Leerzeichen/Umbrüche/Tabs am Anfang/Ende
+            return question
+
+        # falls ollama nicht antwortet oder Fehler auftritt
+        except Exception as e:
+            self.logger.error(f"Call to LLM <{self.model}> failed")
+            return ""
 
     def generate(self, prompt: str) -> str:     # nimmt Prompt/Spielsituation entgegen
         # call the LLM on ollama and return the answer
