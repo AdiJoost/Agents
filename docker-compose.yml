@@ -29,7 +29,7 @@ services:
 
 
   agent:
-    image: agent
+    image: adijida/agent:latest
     container_name: agent-api
     restart: always
     depends_on:
