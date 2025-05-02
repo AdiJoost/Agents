@@ -1,3 +1,4 @@
+import threading
 from flask import Flask
 from flask_restful import Api
 from flasgger import Swagger
@@ -5,6 +6,8 @@ from flasgger import Swagger
 from config.rootPath import getRootPath
 from config.simulationConfig.simulationManager import SimulationManager
 from data.dataManagers.realization.txtManager import TxtManager
+from log.logger import Logger
+from src.facade.api.utils import createResponse
 from src.resources.messageResource import MessageResource, MessagesResource
 from src.resources.metaDataResource import GamesResource, GameResource
 from src.resources.thoughtsResource import ThoughtResource, ThoughtsResource
@@ -16,6 +19,27 @@ api = Api(app)
 swaggerPath = str(getRootPath().joinpath("src/facade/api/swagger.yaml"))
 swagger = Swagger(app, template_file=swaggerPath)
 
+scriptThread: threading.Thread = None
+stopEvent = threading.Event()
+lock = threading.Lock()
+logger = Logger()
+
+def runSimulation():
+    try:
+        logger.info("Simulation started")
+        #simulationManager = SimulationManager("6playersNoReason")
+        simulationManager = SimulationManager("table_discussion")
+        simulationLogger = TxtManager(filename="SimulationProtocol", folderpath="discussions")
+        baseSimulation = BaseSimulation(simulationManager, simulationLogger)
+        baseSimulation.run()
+    except Exception as e:
+        logger.info(f"Error in script: {e}")
+    finally:
+        with lock:
+            global scriptThread
+            scriptThread = None
+        logger.info("Script shut down gracefully")
+
 
 @app.route("/")
 def hello():
@@ -23,10 +47,15 @@ def hello():
 
 @app.route("/start")
 def startSimulation():
-    simulationManager = SimulationManager("table_discussion")
-    simulationLogger = TxtManager(filename="SimulationProtocol", folderpath="discussions")
-    baseSimulation = BaseSimulation(simulationManager, simulationLogger)
-    baseSimulation.run()
+    with lock:
+        global scriptThread
+        if scriptThread is not None and scriptThread.is_alive():
+            return createResponse({"message": "Script already running."}, 400)
+        stopEvent.clear()
+        scriptThread = threading.Thread(target=runSimulation)
+        scriptThread.start()
+        return createResponse({"message": "Script started"}, 200)
+
 
 api.add_resource(MessageResource, "/api/v1/message")
 api.add_resource(MessagesResource, "/api/v1/messages")
