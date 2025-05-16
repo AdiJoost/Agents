@@ -100,7 +100,7 @@ class BaseSimulation():
     def _addMessage(self, message: str, agentName:str ="GameMaster") -> None:
         self.gameState.increaseTime()
         self.gameState.addMessage(MessageModel(
-                    agentName="GameMaster",
+                    agentName=agentName,
                     message=message,
                     gameId=self.gameId
                 ))
