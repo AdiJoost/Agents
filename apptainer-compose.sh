@@ -42,6 +42,5 @@ sleep 5
 echo "Starting Agent API..."
 apptainer exec \
   --env-file dockerEnvironmentVariables.env \
-  --network host \
   agent.sif \
-  python app.py
+  python run.py
