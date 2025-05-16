@@ -9,6 +9,8 @@ mkdir -p ./volumes/ollama-data
 # Convert docker images to SIF files (if not already done)
 echo "Pulling and converting Docker images to SIF..."
 
+SINGULARITY_DISABLE_CACHE=True
+
 apptainer build mongodb.sif docker://mongo:latest
 apptainer build ollama.sif docker://ollama/ollama
 apptainer build agent.sif docker://adijida/agent:latest
