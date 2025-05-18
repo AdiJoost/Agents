@@ -55,7 +55,7 @@ def _getClient() -> None:
     password = getConfig(MongoDBConfigFields.PASSWORD.value, ConfigFiles.MONGO_DB_CONFIG)
     host = ServerConfig.getMongoAddress()
     port = getConfig(MongoDBConfigFields.PORT.value, ConfigFiles.MONGO_DB_CONFIG)
-    return MongoClient(f"mongodb://{username}:{password}@{host}:{port}/")
+    return MongoClient(f"mongodb://{username}:{password}@{host}:{port}/?authSource=admin")
 
 def _getObjectId(_id: str) -> ObjectId:
     if _id is None:
