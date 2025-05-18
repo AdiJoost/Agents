@@ -1,5 +1,12 @@
 #!/bin/bash
 
+HOST_IP=$(ip route get 1 | awk '{print $7; exit}')
+
+export OLLAMA_HOST="http://${HOST_IP}:11434"
+
+echo "Detected host IP: $HOST_IP"
+echo "Using OLLAMA_HOST=$OLLAMA_HOST"
+
 set -e
 
 # Create directories for persistent volumes
@@ -32,6 +39,7 @@ AGENTS_DIR="$(cd "$(dirname "$0")"; pwd)"
 
 echo "Starting Agents..."
 apptainer exec \
+  --env OLLAMA_HOST=$OLLAMA_HOST \
   --env-file "$AGENTS_DIR/dockerEnvironmentVariables.env" \
   --bind "$AGENTS_DIR:/Agents" \
   --pwd /Agents \

@@ -1,6 +1,7 @@
 from config.applicationConfig.applicationConfigFields import ApplicationConfigFields
 from config.configManager import getConfig
 from src.enums.deploymentMode import DeploymentMode
+import os
 
 
 class ServerConfig():
@@ -9,8 +10,10 @@ class ServerConfig():
     def getOllamaAddress(cls) -> str:
         deploymentMode = DeploymentMode(getConfig(ApplicationConfigFields.DEPLOYMENT_MODE.value))
         match deploymentMode:
-            case DeploymentMode.LOCAL | DeploymentMode.SERVER:
+            case DeploymentMode.LOCAL:
                 return "http://localhost:11434"
+            case DeploymentMode.SERVER:
+                return os.environ["OLLAMA_HOST"]
             case DeploymentMode.DOCKER:
                 return "http://ollama:11434"
             case _:
