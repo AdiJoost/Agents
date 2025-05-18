@@ -43,6 +43,7 @@ sleep 5
 echo "Starting Agent API..."
 apptainer exec \
   --env-file dockerEnvironmentVariables.env \
-  --bind "$(pwd)/apptainerdata/agent:/app/data" \
+  --bind "$(pwd)/agent:/agent" \
+  --bind "$(pwd)/apptainerdata/agent:/agent/data" \
   agent.sif \
-  python run.py
+  bash -c "cd /agent && python run.py"
