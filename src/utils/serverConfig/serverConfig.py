@@ -37,7 +37,8 @@ class ServerConfig():
                 return f"mongodb://{username}:{password}@{mongoDbHost}:{port}/?authSource=admin"
             case _:
                 return f"mongodb://{username}:{password}@{mongoDbHost}:{port}/?authSource=admin"
-            
+
+    @classmethod     
     def _getMongoDbHost(cls, deploymentMode: DeploymentMode) -> str:
         match deploymentMode:
             case DeploymentMode.LOCAL:
