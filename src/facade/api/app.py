@@ -12,6 +12,7 @@ from src.resources.messageResource import MessageResource, MessagesResource
 from src.resources.metaDataResource import GamesResource, GameResource
 from src.resources.thoughtsResource import ThoughtResource, ThoughtsResource
 from src.simulation.baseSimulation import BaseSimulation
+import traceback
 
 app = Flask(__name__)
 api = Api(app)
@@ -33,7 +34,8 @@ def runSimulation():
         baseSimulation = BaseSimulation(simulationManager, simulationLogger)
         baseSimulation.run()
     except Exception as e:
-        logger.info(f"Error in script: {e}")
+        logger.error(f"Error in script: {e}")
+        logger.error(f"Traceback: {traceback.format_exc()}")
     finally:
         with lock:
             global scriptThread

@@ -6,3 +6,4 @@ class ApplicationConfigFields(Enum):
     CHATTY_LEVEL = "chattyLevel"
     OVERWRITE_MECHANISM = "overwriteMechanism"
     PORT = "port"
+    DEPLOYMENT_MODE = "deploymentMode"

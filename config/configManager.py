@@ -1,6 +1,6 @@
 import json
 import copy
-from pathlib import Path
+import os
 from config.rootPath import getRootPath
 from config.configFiles import ConfigFiles
 
@@ -22,6 +22,8 @@ def loadConfig():
     return "Hello"
 
 def getConfig(name: str, config: ConfigFiles=ConfigFiles.APPLICATION_CONFIG) -> any:
+    if os.environ.get(name):
+        return os.environ.get(name)
     if config == ConfigFiles.APPLICATION_CONFIG:
         return _getConfig(name, application_config)
     if config == ConfigFiles.MONGO_DB_CONFIG:

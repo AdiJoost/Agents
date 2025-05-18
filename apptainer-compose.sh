@@ -5,6 +5,7 @@ set -e
 # Create directories for persistent volumes
 mkdir -p ./volumes/mongo-data
 mkdir -p ./volumes/ollama-data
+mkdir -p ./apptainerdata/agent
 
 # Convert docker images to SIF files (if not already done)
 echo "Pulling and converting Docker images to SIF..."
@@ -42,5 +43,6 @@ sleep 5
 echo "Starting Agent API..."
 apptainer exec \
   --env-file dockerEnvironmentVariables.env \
+  --bind "$(pwd)/apptainerdata/agent:/app/data" \
   agent.sif \
   python run.py
