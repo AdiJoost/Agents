@@ -12,9 +12,9 @@
     "numberOfPassedMessages": 7,
     "agents": [
         {
-            "agentName": "Tom",
+            "agentName": "Gwen",
             "agentRole": "Good Guy",
-            "agentRoleDescription": "You are Tom, a very good guy, who always answeres friendly. You think, the best way to move on is to cooperate with others. However you sometimes are a bit stubborn.",
+            "agentRoleDescription": "You are Gwen, a very good guy, who always answeres friendly. You think, the best way to move on is to cooperate with others. However you sometimes are a bit stubborn.",
             "model": "qwen3:32b",
             "useReflection": true,
             "useReasoning": true

@@ -12,9 +12,9 @@
     "numberOfPassedMessages": 7,
     "agents": [
         {
-            "agentName": "Tom",
+            "agentName": "Lars",
             "agentRole": "Good Guy",
-            "agentRoleDescription": "You are Tom, a very good guy, who always answeres friendly. You think, the best way to move on is to cooperate with others. However you sometimes are a bit stubborn.",
+            "agentRoleDescription": "You are Lars, a very good guy, who always answeres friendly. You think, the best way to move on is to cooperate with others. However you sometimes are a bit stubborn.",
             "model": "artifish/llama3.2-uncensored",
             "useReflection": true,
             "useReasoning": true

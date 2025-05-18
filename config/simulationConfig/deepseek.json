@@ -12,9 +12,9 @@
     "numberOfPassedMessages": 7,
     "agents": [
         {
-            "agentName": "Tom",
+            "agentName": "Jonny",
             "agentRole": "Good Guy",
-            "agentRoleDescription": "You are Tom, a very good guy, who always answeres friendly. You think, the best way to move on is to cooperate with others. However you sometimes are a bit stubborn.",
+            "agentRoleDescription": "You are Jonny, a very good guy, who always answeres friendly. You think, the best way to move on is to cooperate with others. However you sometimes are a bit stubborn.",
             "model": "deepseek-r1:32b",
             "useReflection": true,
             "useReasoning": true
