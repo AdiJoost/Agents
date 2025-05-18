@@ -23,8 +23,10 @@ class ServerConfig():
     def getMongoAddress(cls) -> str:
         deploymentMode = DeploymentMode(getConfig(ApplicationConfigFields.DEPLOYMENT_MODE.value))
         match deploymentMode:
-            case DeploymentMode.LOCAL | DeploymentMode.SERVER:
+            case DeploymentMode.LOCAL:
                 return "localhost"
+            case DeploymentMode.SERVER:
+                return os.environ["HOST_IP"]
             case DeploymentMode.DOCKER:
                 return "mongodb"
             case _:

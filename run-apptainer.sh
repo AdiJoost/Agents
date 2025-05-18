@@ -40,6 +40,7 @@ AGENTS_DIR="$(cd "$(dirname "$0")"; pwd)"
 echo "Starting Agents..."
 apptainer exec \
   --env OLLAMA_HOST=$OLLAMA_HOST \
+  --env HOST_IP=$HOST_IP \
   --env-file "$AGENTS_DIR/dockerEnvironmentVariables.env" \
   --bind "$AGENTS_DIR:/Agents" \
   --pwd /Agents \
