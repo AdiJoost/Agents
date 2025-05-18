@@ -24,7 +24,7 @@ class LLM_Controller():
         self.host = ServerConfig.getOllamaAddress()
         self.logger = Logger()
         self.logger.info(f"Ollama-Adress is {self.host}")
-        self.client = Client(host=host)
+        self.client = Client(host=self.host)
         self.client.pull(model=model)
         # Async client: bessere Performance wenn viele Agenten parallel laufen
         self.async_client = AsyncClient(host=host)
