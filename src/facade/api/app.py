@@ -82,7 +82,7 @@ def startGroupSimulation(filename):
         if scriptThread is not None and scriptThread.is_alive():
             return createResponse({"message": "Script already running."}, 400)
         stopEvent.clear()
-        scriptThread = threading.Thread(target=runSimulation)
+        scriptThread = threading.Thread(target=runGroupSimulation, args=(filename,))
         scriptThread.start()
         return createResponse({"message": "Script started"}, 200)
 
