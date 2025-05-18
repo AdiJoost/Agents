@@ -22,12 +22,13 @@ class LLM_Controller():
         self.agent_prompt = agent_prompt or f"Du agierst als Rolle {role} im Secret Hitler Spiel" # Persönlichkeit/Verhalten global steuern
         # Custom client: damit ich Ollama auf anderer Server (Docker) laufen lassen kann
         self.host = ServerConfig.getOllamaAddress()
+        self.logger = Logger()
+        self.logger.info(f"Ollama-Adress is {self.host}")
         self.client = Client(host=host)
         self.client.pull(model=model)
         # Async client: bessere Performance wenn viele Agenten parallel laufen
         self.async_client = AsyncClient(host=host)
-        self.logger = Logger()
-        self.logger.info(f"Ollama-Adress is {self.host}")
+        
 
     def toString(self) ->str:
         return f"Model: {self.model}, role: {self.role}, host: {self.host}"
