@@ -23,7 +23,7 @@ class GroupSimulationManager():
     def getNumberOfFacists(self) -> int:
         return self.values.get(SimulationConfigFields.NUMBER_OF_FASCISTS, 0)
 
-    def getSimulationInstructionData(self, promptManager: PromptManager) -> List[SimulationInstructionData]:
+    def getSimulationInstructionData(self) -> List[SimulationInstructionData]:
         returnValue = []
         simulations = self.values.get(GroupSimulationConfigFields.SIMULATIONS)
         if not simulations:
