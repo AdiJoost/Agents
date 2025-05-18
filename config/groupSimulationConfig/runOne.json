@@ -1,0 +1,11 @@
+{
+    "simulations":[
+        {
+            "simulationConfigFile": "table_discussion",
+            "protocol":"SimulationProtocol",
+            "folderpath":"disussions",
+            "simulationItterations": 2
+        }
+    ],
+    "itterations":2
+}
