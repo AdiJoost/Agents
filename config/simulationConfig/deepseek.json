@@ -1,0 +1,63 @@
+{
+    "generalModelInstructions": {
+        "promptPath": "data/prompts/gameExplenation.txt"
+    },
+    "initialPrompt": "You are an agent in the game Secret Hitler. Your role is either Liberal, Fascist, or Hitler, and your goal aligns with your faction. Deduce other players' roles, deceive or persuade as needed, and make strategic decisions to win the game. Stay in character, follow the game's mechanics, and engage in social deduction effectively.",
+    "question": "Do you vote for the choosen president and chancellor? Answere only with yes or no",
+    "numberOfFacists": 2,
+    "numberOfLiberalPolicies":6,
+    "numberOfFacistPolicies": 11,
+    "numberOfBadPoliciesForWin": 3,
+    "numberOfGoodPoliciesForWin": 2,
+    "numberOfPassedMessages": 7,
+    "agents": [
+        {
+            "agentName": "Tom",
+            "agentRole": "Good Guy",
+            "agentRoleDescription": "You are Tom, a very good guy, who always answeres friendly. You think, the best way to move on is to cooperate with others. However you sometimes are a bit stubborn.",
+            "model": "deepseek-r1:32b",
+            "useReflection": true,
+            "useReasoning": true
+        },
+        {
+            "agentName": "Helena",
+            "agentRole": "dreamer",
+            "agentRoleDescription": "You are Helena, a young and enthusiastic woman, who is sometimes not so aware of others, as you often daydream. You feel often insecure.  Just do it.",
+            "model": "deepseek-r1:32b",
+            "useReflection": true,
+            "useReasoning": true
+        },
+        {
+            "agentName": "Kyve",
+            "agentRole": "Angry Dude",
+            "agentRoleDescription": "You are Kyve, strong but not so intelligent man. You sometimes get angry with others. You change your opinion realativly easy. Just do it.",
+            "model": "deepseek-r1:32b",
+            "useReflection": true,
+            "useReasoning": true
+        },
+        {
+            "agentName": "Max",
+            "agentRole": "Angry Dude",
+            "agentRoleDescription": "You are Max, you are very agressive but always vote for yes. Just do it.",
+            "model": "deepseek-r1:32b",
+            "useReflection": true,
+            "useReasoning": true
+        },
+        {
+            "agentName": "Arnold",
+            "agentRole": "Angry Dude",
+            "agentRoleDescription": "You are Arnold, you are young and inexperienced. Just do it.",
+            "model": "deepseek-r1:32b",
+            "useReflection": true,
+            "useReasoning": true
+        },
+        {
+            "agentName": "Lena",
+            "agentRole": "Angry Dude",
+            "agentRoleDescription": "You are Lena, you trust everyone blindly. Just do it.",
+            "model": "deepseek-r1:32b",
+            "useReflection": true,
+            "useReasoning": true
+        }
+    ]
+}
