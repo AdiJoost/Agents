@@ -56,12 +56,7 @@ class BaseSimulation():
 
     def logDBConnection(self):
         logger = Logger()
-        username = getConfig(MongoDBConfigFields.USERNAME.value, ConfigFiles.MONGO_DB_CONFIG)
-        password = getConfig(MongoDBConfigFields.PASSWORD.value, ConfigFiles.MONGO_DB_CONFIG)
-        host = ServerConfig.getMongoAddress()
-        port = getConfig(MongoDBConfigFields.PORT.value, ConfigFiles.MONGO_DB_CONFIG)
-        connectionURL = f"mongodb://{username}:{password}@{host}:{port}/?authSource=admin"
-        logger.info(f"MongoDb ConnectionURL: {connectionURL}")
+        logger.info(ServerConfig.getMongoAddress())
 
     def _logSetup(self) -> None:
         self.gameStateLogger.info("Setup complete")

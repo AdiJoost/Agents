@@ -1,5 +1,7 @@
 from config.applicationConfig.applicationConfigFields import ApplicationConfigFields
+from config.configFiles import ConfigFiles
 from config.configManager import getConfig
+from config.mongoDBConfig.mongoDbConfigFields import MongoDBConfigFields
 from src.enums.deploymentMode import DeploymentMode
 import os
 
@@ -22,6 +24,21 @@ class ServerConfig():
     @classmethod
     def getMongoAddress(cls) -> str:
         deploymentMode = DeploymentMode(getConfig(ApplicationConfigFields.DEPLOYMENT_MODE.value))
+        mongoDbHost = cls._getMongoDbHost(deploymentMode=deploymentMode)
+        username = getConfig(MongoDBConfigFields.USERNAME.value, ConfigFiles.MONGO_DB_CONFIG)
+        password = getConfig(MongoDBConfigFields.PASSWORD.value, ConfigFiles.MONGO_DB_CONFIG)
+        port = getConfig(MongoDBConfigFields.PORT.value, ConfigFiles.MONGO_DB_CONFIG)
+        match deploymentMode:
+            case DeploymentMode.LOCAL:
+                return f"mongodb://{username}:{password}@{mongoDbHost}:{port}/?authSource=admin"
+            case DeploymentMode.SERVER:
+                return f"mongodb://{mongoDbHost}:{port}/?authSource=admin"
+            case DeploymentMode.DOCKER:
+                return f"mongodb://{username}:{password}@{mongoDbHost}:{port}/?authSource=admin"
+            case _:
+                return f"mongodb://{username}:{password}@{mongoDbHost}:{port}/?authSource=admin"
+            
+    def _getMongoDbHost(cls, deploymentMode: DeploymentMode) -> str:
         match deploymentMode:
             case DeploymentMode.LOCAL:
                 return "localhost"

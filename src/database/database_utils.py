@@ -51,11 +51,7 @@ def _getCollection(databaseName: str, collectionName: str) -> Collection:
     return database[collectionName]
 
 def _getClient() -> None:
-    username = getConfig(MongoDBConfigFields.USERNAME.value, ConfigFiles.MONGO_DB_CONFIG)
-    password = getConfig(MongoDBConfigFields.PASSWORD.value, ConfigFiles.MONGO_DB_CONFIG)
-    host = ServerConfig.getMongoAddress()
-    port = getConfig(MongoDBConfigFields.PORT.value, ConfigFiles.MONGO_DB_CONFIG)
-    return MongoClient(f"mongodb://{username}:{password}@{host}:{port}/?authSource=admin")
+    return MongoClient(ServerConfig.getMongoAddress())
 
 def _getObjectId(_id: str) -> ObjectId:
     if _id is None:
