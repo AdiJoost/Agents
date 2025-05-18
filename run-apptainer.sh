@@ -27,10 +27,13 @@ apptainer exec \
 
 sleep 5
 
-echo "Starting Agent API..."
+# Get absolute path to the Agents directory (where this script is)
+AGENTS_DIR="$(cd "$(dirname "$0")"; pwd)"
+
+echo "Starting Agents..."
 apptainer exec \
-  --env-file dockerEnvironmentVariables.env \
-  --bind "$(pwd)/agent:/agent" \
-  --bind "$(pwd)/apptainerdata/agent:/agent/data" \
+  --env-file "$AGENTS_DIR/dockerEnvironmentVariables.env" \
+  --bind "$AGENTS_DIR:/Agents" \
+  --pwd /Agents \
   agent.sif \
-  bash -c "cd /agent && python run.py"
+  python run.py
