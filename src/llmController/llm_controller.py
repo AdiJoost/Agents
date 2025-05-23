@@ -2,8 +2,12 @@
 from ollama import Client, AsyncClient
 import ollama
 
+from config.applicationConfig.applicationConfigFields import ApplicationConfigFields
+from config.configManager import getConfig
 from log.logger import Logger
 from src.actions.questions.question import Question
+from src.enums.deploymentMode import DeploymentMode
+from src.utils.serverConfig.serverConfig import ServerConfig
 #import asyncio
 
 class LLM_Controller():
@@ -17,12 +21,14 @@ class LLM_Controller():
         self.role = role    # Rolle: Liberal, Faschichst, Hitler
         self.agent_prompt = agent_prompt or f"Du agierst als Rolle {role} im Secret Hitler Spiel" # Persönlichkeit/Verhalten global steuern
         # Custom client: damit ich Ollama auf anderer Server (Docker) laufen lassen kann
-        self.host = host
-        self.client = Client(host=host)
+        self.host = ServerConfig.getOllamaAddress()
+        self.logger = Logger()
+        self.logger.info(f"Ollama-Adress is {self.host}")
+        self.client = Client(host=self.host)
         self.client.pull(model=model)
         # Async client: bessere Performance wenn viele Agenten parallel laufen
         self.async_client = AsyncClient(host=host)
-        self.logger = Logger()
+        
 
     def toString(self) ->str:
         return f"Model: {self.model}, role: {self.role}, host: {self.host}"

@@ -3,6 +3,7 @@ from flask import Flask
 from flask_restful import Api
 from flasgger import Swagger
 
+from config.groupSimulationConfig.groupSimulationManager import GroupSimulationManager
 from config.rootPath import getRootPath
 from config.simulationConfig.simulationManager import SimulationManager
 from data.dataManagers.realization.txtManager import TxtManager
@@ -12,6 +13,9 @@ from src.resources.messageResource import MessageResource, MessagesResource
 from src.resources.metaDataResource import GamesResource, GameResource
 from src.resources.thoughtsResource import ThoughtResource, ThoughtsResource
 from src.simulation.baseSimulation import BaseSimulation
+import traceback
+
+from src.simulation.groupSimulation.groupSimulation import GroupSimulation
 
 app = Flask(__name__)
 api = Api(app)
@@ -33,7 +37,22 @@ def runSimulation():
         baseSimulation = BaseSimulation(simulationManager, simulationLogger)
         baseSimulation.run()
     except Exception as e:
-        logger.info(f"Error in script: {e}")
+        logger.error(f"Error in script: {e}")
+        logger.error(f"Traceback: {traceback.format_exc()}")
+    finally:
+        with lock:
+            global scriptThread
+            scriptThread = None
+        logger.info("Script shut down gracefully")
+
+def runGroupSimulation(filename):
+    try:
+        logger.info("Group Simulation started")
+        groupSimulationManager = GroupSimulationManager(filename)
+        GroupSimulation(groupSimulationManager=groupSimulationManager).run()
+    except Exception as e:
+        logger.error(f"Error in script: {e}")
+        logger.error(f"Traceback: {traceback.format_exc()}")
     finally:
         with lock:
             global scriptThread
@@ -53,6 +72,17 @@ def startSimulation():
             return createResponse({"message": "Script already running."}, 400)
         stopEvent.clear()
         scriptThread = threading.Thread(target=runSimulation)
+        scriptThread.start()
+        return createResponse({"message": "Script started"}, 200)
+    
+@app.route("/group/start/<string:filename>")
+def startGroupSimulation(filename):
+    with lock:
+        global scriptThread
+        if scriptThread is not None and scriptThread.is_alive():
+            return createResponse({"message": "Script already running."}, 400)
+        stopEvent.clear()
+        scriptThread = threading.Thread(target=runGroupSimulation, args=(filename,))
         scriptThread.start()
         return createResponse({"message": "Script started"}, 200)
 

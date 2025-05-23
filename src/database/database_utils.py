@@ -8,6 +8,8 @@ from config.configManager import getConfig
 from config.mongoDBConfig.mongoDbConfigFields import MongoDBConfigFields
 from bson.errors import InvalidId
 
+from src.utils.serverConfig.serverConfig import ServerConfig
+
 def getDocumentById(objectId: str, databaseName: str, collectionName: str) -> dict:
     collection = _getCollection(databaseName=databaseName, collectionName=collectionName)
     return collection.find_one({"_id": objectId})
@@ -20,23 +22,6 @@ def getDocumentsWithFilter(limit: int, offset: int, databaseName:str, collection
     collection = _getCollection(databaseName=databaseName, collectionName=collectionName)
     query = filterDict if filterDict is not None else {}
     return list(collection.find(query).skip(offset).limit(limit))
-
-def getOnlyAutomaticRecipes(databaseName:str, collectionName: str, limit: int=20, offset: int=0) -> list:
-    query = [
-        {
-            "$match": {
-                "steps": {
-                    "$not": {
-                        "$elemMatch": {"controller_type": "manualController"}
-                    }
-                }
-            }
-        },
-        {"$skip": offset},
-        {"$limit": limit} 
-    ]
-    collection = _getCollection(databaseName=databaseName, collectionName=collectionName)
-    return list(collection.aggregate(query))
 
 def saveDocument(document: dict, databaseName: str, collectionName: str) -> any:
     if document.get("_id") is None:
@@ -66,11 +51,7 @@ def _getCollection(databaseName: str, collectionName: str) -> Collection:
     return database[collectionName]
 
 def _getClient() -> None:
-    username = getConfig(MongoDBConfigFields.USERNAME.value, ConfigFiles.MONGO_DB_CONFIG)
-    password = getConfig(MongoDBConfigFields.PASSWORD.value, ConfigFiles.MONGO_DB_CONFIG)
-    host = getConfig(MongoDBConfigFields.HOST.value, ConfigFiles.MONGO_DB_CONFIG)
-    port = getConfig(MongoDBConfigFields.PORT.value, ConfigFiles.MONGO_DB_CONFIG)
-    return MongoClient(f"mongodb://{username}:{password}@{host}:{port}/")
+    return MongoClient(ServerConfig.getMongoAddress())
 
 def _getObjectId(_id: str) -> ObjectId:
     if _id is None:

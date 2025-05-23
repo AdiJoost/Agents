@@ -3,5 +3,6 @@
      "logLevel": "INFO",
      "chattyLevel": "INFO",
      "overwriteMechanism":"OVERWRITE",
-     "port": 5000
+     "port": 5000,
+     "deploymentMode": "docker"
 }

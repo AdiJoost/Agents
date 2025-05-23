@@ -3,6 +3,9 @@
 import random
 from typing import List
 
+from config.configFiles import ConfigFiles
+from config.configManager import getConfig
+from config.mongoDBConfig.mongoDbConfigFields import MongoDBConfigFields
 from config.simulationConfig.simulationManager import SimulationManager
 from data.dataManagers.realization.promptManager import PromptManager
 from data.dataManagers.realization.txtManager import TxtManager
@@ -15,11 +18,13 @@ from src.enums.promptMessages import PromptMessages
 from src.models.messageModel import MessageModel
 from src.models.metaDataModel import MetaDataModel
 from src.simulation.gamestate import GameState
+from src.utils.serverConfig.serverConfig import ServerConfig
 
 
 class BaseSimulation():
 
     def __init__(self, simulationManager: SimulationManager, protocolLogger: TxtManager=None, promptManager: PromptManager= PromptManager()) -> None:
+        self.logDBConnection()
         self.simulationManager = simulationManager
         self.protocolLogger = protocolLogger
         self.promptManager = promptManager
@@ -48,6 +53,10 @@ class BaseSimulation():
         for agent in self.agents:
             agent.setGameState(self.gameState)
         self._logSetup()
+
+    def logDBConnection(self):
+        logger = Logger()
+        logger.info(ServerConfig.getMongoAddress())
 
     def _logSetup(self) -> None:
         self.gameStateLogger.info("Setup complete")
@@ -100,7 +109,7 @@ class BaseSimulation():
     def _addMessage(self, message: str, agentName:str ="GameMaster") -> None:
         self.gameState.increaseTime()
         self.gameState.addMessage(MessageModel(
-                    agentName="GameMaster",
+                    agentName=agentName,
                     message=message,
                     gameId=self.gameId
                 ))
