@@ -13,7 +13,7 @@ class GroupSimulation():
     def run(self) -> None:
         itterations = 0
         targetItterations = self.groupSimulationManager.getItterations()
-        while itterations < targetItterations:
+        while itterations < targetItterations or targetItterations == -1:
             itterations += 1
             for simulationInstructionData in self.groupSimulationManager.getSimulationInstructionData():
                 self._runSimulationInstruction(simulationInstructionData)
