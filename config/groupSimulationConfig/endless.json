@@ -1,0 +1,29 @@
+{
+    "simulations":[
+        {
+            "simulationConfigFile": "deepseek",
+            "protocol":"SimulationProtocol",
+            "folderpath":"disussions",
+            "simulationItterations": 1
+        },
+        {
+            "simulationConfigFile": "gemini",
+            "protocol":"SimulationProtocol",
+            "folderpath":"disussions",
+            "simulationItterations": 1
+        },
+        {
+            "simulationConfigFile": "lama3",
+            "protocol":"SimulationProtocol",
+            "folderpath":"disussions",
+            "simulationItterations": 1
+        },
+        {
+            "simulationConfigFile": "qwen",
+            "protocol":"SimulationProtocol",
+            "folderpath":"disussions",
+            "simulationItterations": 1
+        }
+    ],
+    "itterations":-1
+}
