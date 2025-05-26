@@ -20,7 +20,7 @@ class MessageModel(BaseModel):
         self.message = message
     
     def getAgentName(self) -> str:
-        return self.getAgentName
+        return self.agentName
     
     def setAgentName(self, agentName:str) -> None:
         self.agentName = agentName
