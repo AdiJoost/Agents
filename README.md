@@ -8,17 +8,28 @@ This is a minimal framework for experimenting with AI agents, developed at FHGR.
 
 ## 🚀 Getting Started
 
-You can run the project using either **Docker** or **Apptainer** (for server environments).
+You can run the project using either **Docker** or **Apptainer** (for server environments). For Docker, a docker-compose.yaml is provided.
 
 ### Option 1: Docker
 
 ```bash
-docker build -t ai-agent-framework .
+docker build -t agent.
 docker run -p 5000:5000 ai-agent-framework
 ```
 
-### Option 2: Apptainer (on server)
+or
 
+```bash
+docker build -t agent.
+docker-compose up -d
+```
+
+### Option 2: Apptainer (on server)
+For running in Server mode, the dockerEnviromentVariables.env have to be changed. You have to add
+```bash
+deploymentMode=server
+```
+then
 ```bash
 ./apptainer-build.sh
 ./apptainer-run.sh
