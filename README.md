@@ -13,14 +13,14 @@ You can run the project using either **Docker** or **Apptainer** (for server env
 ### Option 1: Docker
 
 ```bash
-docker build -t agent.
+docker build -t agent .
 docker run -p 5000:5000 ai-agent-framework
 ```
 
 or
 
 ```bash
-docker build -t agent.
+docker build -t agent .
 docker-compose up -d
 ```
 
